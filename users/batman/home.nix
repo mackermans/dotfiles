@@ -81,7 +81,6 @@
         awscli2 # aws cli
         aws-vault # aws profile and credentials manager
         cachix # nix binary cache manager
-        chezmoi # dotfiles manager
         deadnix # nixOS linter
         fd # better find
         fx # terminal json viewer
