@@ -41,6 +41,11 @@
         source = ./.config/hammerspoon;
         recursive = true;
       };
+
+      ".local/share/nvim/nix/nvim-treesitter/" = {
+        recursive = true;
+        source = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+      };
     };
 
     # Home Manager needs a bit of information about you and the paths it should
