@@ -31,12 +31,10 @@
     # `brew install`
     brews = [
       "exercism"
-      "fx"
       # "koekeishiya/formulae/skhd" # hotkey daemon
       # "koekeishiya/formulae/yabai" # tiling window manager
       "pipx"
       "tilt-dev/tap/tilt" # k8s dev environment
-      "withgraphite/tap/graphite" # git tools
     ];
 
     # `brew install --cask`

@@ -84,8 +84,10 @@
         chezmoi # dotfiles manager
         deadnix # nixOS linter
         fd # better find
+        fx # terminal json viewer
         fzf # fuzzy finder
         httpie # fetch cli
+        graphite-cli # git stacks cli
         glow # markdown preview
         gron # json grep
         jq # json parser
