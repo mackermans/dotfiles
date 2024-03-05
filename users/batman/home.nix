@@ -68,9 +68,9 @@
     packages = with pkgs;
       [
         # ported from system packages
+        btop # process monitor
         comma # run any nix package as a one-off command
         curl # fetch
-        htop # process monitor
         rsync # file sync
         vim # text editor
         wget # fetch
