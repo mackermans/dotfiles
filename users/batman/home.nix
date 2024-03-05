@@ -67,50 +67,68 @@
 
     packages = with pkgs;
       [
-        # ported from system packages
+        # System Tools
         btop # process monitor
-        comma # run any nix package as a one-off command
-        curl # fetch
+        neofetch # system info
+        nmap # network scanner
         rsync # file sync
         vim # text editor
+        wakeonlan # wake on lan
+
+        # Fetching Tools
+        curl # fetch
+        httpie # fetch cli
         wget # fetch
 
-        _1password # 1password: password manager cli
-        age # encryption cli
-        alejandra # nixOS formatter
-        awscli2 # aws cli
+        # Cloud and Infrastructure Management
         aws-vault # aws profile and credentials manager
-        cachix # nix binary cache manager
-        deadnix # nixOS linter
-        fd # better find
-        fx # terminal json viewer
-        fzf # fuzzy finder
-        httpie # fetch cli
-        graphite-cli # git stacks cli
-        glow # markdown preview
-        gron # json grep
-        jq # json parser
+        awscli2 # aws cli
         kubectl # k8s management cli
         kubectx # k8s context switcher
         kubernetes-helm # k8s package manager
-        lazygit # git management cli
-        neo4j # graph database
-        neofetch # system info
-        nmap # network scanner
-        nixd # nix language server
-        python3 # python v3
-        ripgrep # better grep
-        shellcheck # shell linter
-        sops # encrypted file editor
-        statix # nixOS linter
         terraform # terraform cli for infrastructure provisioning
-        trash-cli # trash cli for safer rm
-        wakeonlan # wake on lan cli
-        websocat # websocket cli
+
+        # Security and Encryption
+        _1password # 1password: password manager cli
+        age # encryption cli
+        sops # encrypted file editor
+
+        # Development Tools
+        fzf # fuzzy finder
+        graphite-cli # git stacks cli
+        lazygit # git management cli
+        nodePackages_latest.pnpm # node package manager
+        nodejs_21 # nodejs v21
+        python3 # python v3
+        shellcheck # shell linter
+
+        # Nix
+        cachix # nix binary cache manager
+
+        # Language Servers
+        nixd # nix language server
+
+        # Linters
+        deadnix # nix linter
+        statix # nix linter
+
+        # Formatters
+        alejandra # nix formatter
+
+        # JSON and Data Manipulation
+        fx # terminal json viewer
+        gron # json grep
+        jq # json parser
         yq-go # yaml/toml/xml parser
 
-        nodejs_21
-        nodePackages_latest.pnpm
+        # Utilities and Misc
+        comma # run any nix package as a one-off command
+        fd # better find
+        glow # markdown preview
+        neo4j # graph database
+        ripgrep # better grep
+        trash-cli # trash cli for safer rm
+        websocat # websocket cli
 
         # # It is sometimes useful to fine-tune packages, for example, by applying
         # # overrides. You can do that directly here, just don't forget the
