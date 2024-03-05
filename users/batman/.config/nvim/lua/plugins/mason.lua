@@ -1,42 +1,12 @@
 return {
   {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = {
-      "williamboman/mason.nvim",
-    },
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "bashls",
-          "biome",
-          "graphql",
-          "jsonls",
-          "lua_ls",
-          "nil_ls",
-          "prettier",
-          "prismals",
-          "quick_lint_js",
-          "rust_analyzer",
-          "svelte",
-          "tailwindcss",
-          "taplo",
-          "yamlls",
-        },
-      })
-    end,
-  },
-  {
 
     "williamboman/mason.nvim",
     cmd = "Mason",
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     build = ":MasonUpdate",
     opts = {
-      ensure_installed = {
-        "shfmt",
-        "stylua",
-      },
+      ensure_installed = {},
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)
@@ -65,5 +35,9 @@ return {
         ensure_installed()
       end
     end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    enabled = false,
   },
 }

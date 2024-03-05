@@ -3,25 +3,23 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "b0o/SchemaStore.nvim",
-      "williamboman/mason-lspconfig.nvim",
     },
     opts = function(_, opts)
       local lspconfig = require("lspconfig")
-      -- automatically installed by mason
       opts.servers = {
         bashls = {},
         biome = {},
-        graphql = {
-          root_dir = lspconfig.util.root_pattern(".graphqlconfig", ".graphqlrc", "package.json"),
-        },
         lua_ls = {},
         nixd = {},
-        prismals = {},
         quick_lint_js = {},
         svelte = {},
         rust_analyzer = {},
         tailwindcss = {},
         taplo = {},
+
+        graphql = {
+          root_dir = lspconfig.util.root_pattern(".graphqlconfig", ".graphqlrc", "package.json"),
+        },
 
         jsonls = {
           on_new_config = function(new_config)
@@ -34,6 +32,43 @@ return {
                 enable = true,
               },
               validate = { enable = true },
+            },
+          },
+        },
+
+        tsserver = {
+          keys = {
+            {
+              "<leader>co",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.organizeImports.ts" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Organize Imports",
+            },
+            {
+              "<leader>cR",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.removeUnused.ts" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Remove Unused Imports",
+            },
+          },
+          ---@diagnostic disable-next-line: missing-fields
+          settings = {
+            completions = {
+              completeFunctionCalls = true,
             },
           },
         },

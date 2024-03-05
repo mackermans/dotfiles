@@ -100,20 +100,44 @@
         nodePackages_latest.pnpm # node package manager
         nodejs_21 # nodejs v21
         python3 # python v3
-        shellcheck # shell linter
 
         # Nix
         cachix # nix binary cache manager
 
-        # Language Servers
-        nixd # nix language server
-
-        # Linters
-        deadnix # nix linter
-        statix # nix linter
-
-        # Formatters
+        # Language Servers, Linters and Formatters
+        # bash
+        nodePackages_latest.bash-language-server # bash language server
+        shellcheck # shell linter
+        shfmt # shell formatter
+        # github actions
+        actionlint # github action linter
+        # graphql
+        nodePackages_latest.graphql-language-service-cli # graphql language server
+        # javascript/typescript
+        quick-lint-js # javascript/typescript linter
+        nodePackages_latest.typescript-language-server # typescript language server
+        # lua
+        lua-language-server # lua language server
+        stylua # lua formatter
+        # nix
         alejandra # nix formatter
+        deadnix # nix linter
+        nixd # nix language server
+        statix # nix linter
+        # rust
+        rust-analyzer # rust language server
+        # svelte
+        nodePackages_latest.svelte-language-server # svelte language server
+        # tailwind
+        tailwindcss-language-server # tailwind language server
+        # toml
+        taplo # toml language server
+        # yaml
+        yaml-language-server # yaml language server
+        # misc
+        biome # linter and formatter
+        nodePackages_latest.prettier # formatter
+        vscode-langservers-extracted # vscode language servers (HTML/CSS/JSON/ESLint)
 
         # JSON and Data Manipulation
         fx # terminal json viewer
