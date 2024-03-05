@@ -30,24 +30,26 @@
     darwinArgs =
       inputs
       // {
+        currentConfigPath = "~/.dotfiles";
         currentHostname = "batmac";
         currentInstallation = "nix-darwin";
         currentSystem = "aarch64-darwin";
         currentUser = "batman";
         isDarwin = true;
         hasGui = true;
-        rebuildCommand = "darwin-rebuild";
+        nixRebuild = "darwin-rebuild";
       };
     nixosArgs =
       inputs
       // {
+        currentConfig = "~/.dotfiles";
         currentHostname = "batnix";
         currentInstallation = "nixos";
         currentSystem = "aarch64-linux";
         currentUser = "batman";
         isDarwin = false;
         hasGui = true;
-        rebuildCommand = "sudo nixos-rebuild";
+        nixRebuild = "sudo nixos-rebuild";
       };
   in {
     darwinConfigurations = {

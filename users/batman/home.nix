@@ -1,7 +1,9 @@
 {
+  currentInstallation,
   currentUser,
   hasGui,
   isDarwin,
+  nixRebuild,
   pkgs,
   ...
 }: {
@@ -14,14 +16,27 @@
       source = ./.config/alacritty/catppuccin;
       recursive = true;
     };
+    "nvim" = {
+      source = ./.config/nvim;
+      recursive = true;
+    };
   };
 
   home = {
     file = {
-      ".config/nvim" = {
-        source = ./.config/nvim;
-        recursive = true;
+      ".dotfiles/.git/hooks/pre-commit" = let
+        dotfilesPrecommitHook = pkgs.writeShellScript "dotfiles-git-pre-commit-hook" ''
+          echo "Rebuilding Nix configuration..."
+          if ! nix-rebuild; then
+            echo "Rebuild failed, aborting commit"
+            exit 1
+          fi
+          echo "Rebuild successful, continuing commit"
+        '';
+      in {
+        source = dotfilesPrecommitHook;
       };
+
       ".hammerspoon" = {
         source = ./.config/hammerspoon;
         recursive = true;
@@ -97,9 +112,13 @@
         # # You can also create simple shell scripts directly inside your
         # # configuration. For example, this adds a command 'my-hello' to your
         # # environment:
-        # (pkgs.writeShellScriptBin "my-hello" ''
-        #   echo "Hello, ${config.home.username}!"
-        # '')
+        (pkgs.writeShellScriptBin "nix-rebuild" ''
+          ${nixRebuild} switch --flake "$HOME/.dotfiles#${currentInstallation}";
+        '')
+
+        (pkgs.writeShellScriptBin "nix-rollback" ''
+          ${nixRebuild} switch --rollback;
+        '')
       ]
       ++ (
         if !isDarwin && hasGui

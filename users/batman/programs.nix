@@ -3,10 +3,8 @@
   lib,
   osConfig,
   pkgs,
-  currentInstallation,
   hasGui,
   isDarwin,
-  rebuildCommand,
   ...
 }: {
   programs = {
@@ -254,8 +252,6 @@
 
       shellAbbrs = {
         gci = "git checkout-interactive";
-        rebuild = "${rebuildCommand} switch --flake ~/.dotfiles#${currentInstallation}";
-        rollback = "${rebuildCommand} switch --rollback";
         t = "tmux";
         tf = "terraform";
         v = "vim";
