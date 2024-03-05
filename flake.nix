@@ -30,7 +30,6 @@
     darwinArgs =
       inputs
       // {
-        currentConfigPath = "~/.dotfiles";
         currentHostname = "batmac";
         currentInstallation = "nix-darwin";
         currentSystem = "aarch64-darwin";
@@ -42,7 +41,6 @@
     nixosArgs =
       inputs
       // {
-        currentConfig = "~/.dotfiles";
         currentHostname = "batnix";
         currentInstallation = "nixos";
         currentSystem = "aarch64-linux";
