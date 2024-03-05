@@ -110,6 +110,9 @@
         websocat # websocket cli
         yq-go # yaml/toml/xml parser
 
+        nodejs_21
+        nodePackages_latest.pnpm
+
         # # It is sometimes useful to fine-tune packages, for example, by applying
         # # overrides. You can do that directly here, just don't forget the
         # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
