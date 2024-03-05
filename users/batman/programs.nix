@@ -518,6 +518,14 @@
       extraConfig = builtins.readFile ./.config/wezterm/config.lua;
     };
 
+    zellij = {
+      enable = false;
+      enableFishIntegration = true;
+      settings = {
+        theme = "catppuccin-macchiato";
+      };
+    };
+
     zoxide = {
       enable = true;
     };
