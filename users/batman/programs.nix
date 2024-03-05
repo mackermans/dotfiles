@@ -369,6 +369,7 @@
     neovim = {
       defaultEditor = true;
       enable = true;
+      extraPackages = with pkgs; [gcc];
       vimAlias = true;
     };
 
