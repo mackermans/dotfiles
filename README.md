@@ -9,7 +9,7 @@
 - Clone this repository to `~/.dotfiles`
 
 ```sh
-git clone git@github.com:mackermans/nix.git ~/.dotfiles
+git clone git@github.com:mackermans/dotfiles.git ~/.dotfiles
 ```
 
 ### MacOS
@@ -29,9 +29,9 @@ nix run nixos-rebuild --extra-experimental-features "nix-command flakes" switch 
 Update your system configuration to the latest version:
 
 ```sh
-rebuild
+nix-rebuild
 ``` 
 
 ```sh
-rollback
+nix-rollback
 ```
