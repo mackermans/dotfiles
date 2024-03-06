@@ -102,7 +102,6 @@
         nodePackages_latest.pnpm # node package manager
         nodejs_21 # nodejs v21
         python3 # python v3
-        sqlite # sqlite cli
 
         # Nix
         cachix # nix binary cache manager
