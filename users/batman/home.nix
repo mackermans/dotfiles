@@ -102,6 +102,7 @@
         nodePackages_latest.pnpm # node package manager
         nodejs_21 # nodejs v21
         python3 # python v3
+        tilt # k8s dev environment
 
         # Nix
         cachix # nix binary cache manager

@@ -34,7 +34,6 @@
       # "koekeishiya/formulae/skhd" # hotkey daemon
       # "koekeishiya/formulae/yabai" # tiling window manager
       "pinentry-mac" # gpg passkey agent
-      "tilt-dev/tap/tilt" # k8s dev environment
     ];
 
     # `brew install --cask`
