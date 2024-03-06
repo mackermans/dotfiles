@@ -96,6 +96,7 @@
         sops # encrypted file editor
 
         # Development Tools
+        devbox # dev environment
         fzf # fuzzy finder
         graphite-cli # git stacks cli
         lazygit # git management cli
