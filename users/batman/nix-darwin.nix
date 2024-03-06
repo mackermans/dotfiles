@@ -21,9 +21,10 @@
     enable = true;
 
     onActivation = {
-      autoUpdate = true;
+      autoUpdate = false;
+
       # 'zap': uninstalls all formulae(and related files) not listed here.
-      # cleanup = "zap";
+      cleanup = "zap";
     };
 
     taps = [];
@@ -44,6 +45,18 @@
       "orbstack"
       "raycast"
     ];
+
+    masApps = {
+      "1Password for Safari" = 1569813296;
+      DaisyDisk = 411643860;
+      "DaVinci Resolve" = 571213070;
+      "Final Cut Pro" = 424389933;
+      "Raivo Receiver" = 1498497896;
+      "Slack for Desktop" = 803453959;
+      Tailscale = 1475387142;
+      WireGuard = 1451685025;
+      XCode = 497799835;
+    };
   };
 
   networking.computerName = currentHostname;
