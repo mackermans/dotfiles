@@ -72,10 +72,12 @@
         neofetch # system info
         nmap # network scanner
         rsync # file sync
+        tldr # community-maintained man pages
         vim # text editor
         wakeonlan # wake on lan
 
         # Fetching Tools
+        bruno # api explorer
         curl # fetch
         httpie # fetch cli
         wget # fetch
@@ -100,6 +102,7 @@
         nodePackages_latest.pnpm # node package manager
         nodejs_21 # nodejs v21
         python3 # python v3
+        sqlite # sqlite cli
 
         # Nix
         cachix # nix binary cache manager

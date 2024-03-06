@@ -30,10 +30,9 @@
 
     # `brew install`
     brews = [
-      "exercism"
       # "koekeishiya/formulae/skhd" # hotkey daemon
       # "koekeishiya/formulae/yabai" # tiling window manager
-      "pipx"
+      "pinentry-mac" # gpg passkey agent
       "tilt-dev/tap/tilt" # k8s dev environment
     ];
 
@@ -41,9 +40,9 @@
     casks = [
       "1password"
       "amethyst"
-      "bruno"
       "hammerspoon"
-      "vlc"
+      "orbstack"
+      "raycast"
     ];
   };
 
