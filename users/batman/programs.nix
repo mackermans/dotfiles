@@ -318,6 +318,12 @@
         ".DS_Store"
         ".idea"
         ".vscode"
+
+        # direnv
+        ".envrc"
+        # devbox
+        "devbox.json"
+        "devbox.lock"
       ];
     };
 
