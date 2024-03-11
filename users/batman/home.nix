@@ -167,12 +167,18 @@
         # # You can also create simple shell scripts directly inside your
         # # configuration. For example, this adds a command 'my-hello' to your
         # # environment:
+
+        # should be a script, so it can be used in other scripts
         (pkgs.writeShellScriptBin "nix-rebuild" ''
-          ${nixRebuild} switch --flake "$HOME/.dotfiles#${currentInstallation}";
+          ${nixRebuild} switch --flake "$HOME/.dotfiles#${currentInstallation}"
         '')
 
         (pkgs.writeShellScriptBin "nix-rollback" ''
-          ${nixRebuild} switch --rollback;
+          ${nixRebuild} switch --rollback
+        '')
+
+        (pkgs.writeShellScriptBin "nix-edit" ''
+          pushd "$HOME/.dotfiles"; /usr/bin/env vim flake.nix; popd
         '')
       ]
       ++ (
