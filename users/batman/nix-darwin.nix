@@ -48,6 +48,7 @@
     masApps = {
       "1Password for Safari" = 1569813296;
       DaisyDisk = 411643860;
+      Dato = 1470584107;
       "DaVinci Resolve" = 571213070;
       "Final Cut Pro" = 424389933;
       "Raivo Receiver" = 1498497896;
