@@ -160,11 +160,6 @@
           body = "echo \"'rm' is restricted. Alternative: 'trash', or '$(which rm)' if you need to.\";";
           description = "block usage of rm command";
         };
-        vimr = {
-          body = "nvr --servername (nvr --serverlist | tail -n1) --remote-silent";
-          description = "open file with nvim in existing instance";
-          wraps = "nvr";
-        };
       };
 
       plugins = [
@@ -522,6 +517,55 @@
     wezterm = {
       enable = true;
       extraConfig = builtins.readFile ./.config/wezterm/config.lua;
+    };
+
+    xplr = {
+      enable = true;
+
+      # Optional params:
+      plugins = {
+        trash-cli = pkgs.fetchFromGitHub {
+          owner = "sayanarijit";
+          repo = "trash-cli.xplr";
+          rev = "2c5c8c64ec88c038e2075db3b1c123655dc446fa";
+          sha256 = "sha256-Yb6meF5TTVAL7JugPH/znvHhn588pF5g1luFW8YYA7U=";
+        };
+        tri-pane = pkgs.fetchFromGitHub {
+          owner = "sayanarijit";
+          repo = "tri-pane.xplr";
+          rev = "v0.20.2";
+          sha256 = "sha256-iUpaTfsYz4vdmfoVbk//cEvK3GqsLfeR84y5Pzj8j/Q=";
+        };
+        tree-view = pkgs.fetchFromGitHub {
+          owner = "sayanarijit";
+          repo = "tree-view.xplr";
+          rev = "v0.1.4";
+          sha256 = "sha256-4iuJPNenHFX7izZXFSlP4DXG3qKkvFbR7+9zP4UzanQ=";
+        };
+        zoxide = pkgs.fetchFromGitHub {
+          owner = "sayanarijit";
+          repo = "zoxide.xplr";
+          rev = "e50fd35db5c05e750a74c8f54761922464c1ad5f";
+          sha256 = "sha256-ZiOupn9Vq/czXI3JHvXUlAvAFdXrwoO3NqjjiCZXRnY=";
+        };
+      };
+      extraConfig = ''
+        require("trash-cli").setup()
+        require("tri-pane").setup()
+        require("tree-view").setup()
+        require("zoxide").setup()
+
+        xplr.config.modes.builtin.default.key_bindings.on_key["e"] = {
+          help = "edit in Neovim",
+          messages = {
+            {
+              BashExecSilently0 = [=[
+                nvim "$\{XPLR_FOCUS_PATH:?}"
+              ]=]
+            },
+          },
+        }
+      '';
     };
 
     zellij = {
