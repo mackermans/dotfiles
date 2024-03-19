@@ -85,6 +85,7 @@
         # Cloud and Infrastructure Management
         aws-vault # aws profile and credentials manager
         awscli2 # aws cli
+        granted # aws role switcher
         kubectl # k8s management cli
         kubectx # k8s context switcher
         kubernetes-helm # k8s package manager
