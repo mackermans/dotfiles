@@ -285,7 +285,9 @@
           untrackedCache = true;
         };
         delta = {
+          line-numbers = true;
           navigate = true; # use n and N to move between diff sections
+          side-by-side = true;
         };
         diff = {
           colorMoved = "default";
@@ -303,14 +305,14 @@
             }
             else {}
           );
-        merge = {
-          conflictStyle = "diff3";
-        };
         init = {
           defaultBranch = "main";
         };
         interactive = {
           diffFilter = "delta --color-only";
+        };
+        merge = {
+          conflictStyle = "diff3";
         };
         user = {
           email = "4571935+mackermans@users.noreply.github.com";
