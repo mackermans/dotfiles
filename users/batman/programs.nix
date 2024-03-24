@@ -271,8 +271,6 @@
     git = {
       enable = true;
 
-      delta.enable = true;
-
       aliases = {
         checkout-interactive = "!git checkout $(git branch | fzf | xargs)";
       };
@@ -283,7 +281,14 @@
         };
         core = {
           fsmonitor = true;
+          pager = "delta";
           untrackedCache = true;
+        };
+        delta = {
+          navigate = true; # use n and N to move between diff sections
+        };
+        diff = {
+          colorMoved = "default";
         };
         gpg =
           {
@@ -298,8 +303,14 @@
             }
             else {}
           );
+        merge = {
+          conflictStyle = "diff3";
+        };
         init = {
           defaultBranch = "main";
+        };
+        interactive = {
+          diffFilter = "delta --color-only";
         };
         user = {
           email = "4571935+mackermans@users.noreply.github.com";
