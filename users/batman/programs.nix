@@ -314,6 +314,9 @@
         merge = {
           conflictStyle = "diff3";
         };
+        rebase = {
+          updateRefs = true;
+        };
         user = {
           email = "4571935+mackermans@users.noreply.github.com";
           name = "Maarten Ackermans";
