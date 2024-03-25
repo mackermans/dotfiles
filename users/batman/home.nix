@@ -106,6 +106,7 @@
         nodejs_21 # nodejs v21
         python3 # python v3
         tilt # k8s dev environment
+        watchman # file watcher
 
         # Nix
         cachix # nix binary cache manager

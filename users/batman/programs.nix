@@ -345,7 +345,7 @@
       enable = true;
       settings = {
         core = {
-          fsmonitor = true;
+          fsmonitor = "watchman";
         };
         signing = {
           backend = "ssh";
