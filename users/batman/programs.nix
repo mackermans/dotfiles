@@ -316,6 +316,10 @@
         rebase = {
           updateRefs = true;
         };
+        # record merge resolutions (REuse REcorded REsolution)
+        rerere = {
+          enabled = true;
+        };
         user = {
           email = "4571935+mackermans@users.noreply.github.com";
           name = "Maarten Ackermans";
