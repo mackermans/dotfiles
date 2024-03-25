@@ -60,14 +60,11 @@
           home-manager.darwinModules.home-manager
           {
             home-manager = {
+              extraSpecialArgs = darwinArgs;
               useGlobalPkgs = true;
               useUserPackages = true;
               users.${darwinArgs.currentUser} = import ./users/${darwinArgs.currentUser}/home.nix;
             };
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-            home-manager.extraSpecialArgs = darwinArgs;
           }
 
           nix-index-database.darwinModules.nix-index
@@ -99,14 +96,11 @@
           home-manager.nixosModules.home-manager
           {
             home-manager = {
+              extraSpecialArgs = nixosArgs;
               useGlobalPkgs = true;
               useUserPackages = true;
               users.${nixosArgs.currentUser} = import ./users/${nixosArgs.currentUser}/home.nix;
             };
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-            home-manager.extraSpecialArgs = nixosArgs;
           }
 
           nix-index-database.nixosModules.nix-index
