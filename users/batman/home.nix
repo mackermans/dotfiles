@@ -16,6 +16,10 @@
       source = ./.config/alacritty/catppuccin;
       recursive = true;
     };
+    "karabiner" = {
+      source = ./.config/karabiner;
+      recursive = true;
+    };
     "nvim" = {
       source = ./.config/nvim;
       recursive = true;
@@ -35,11 +39,6 @@
         '';
       in {
         source = dotfilesPrecommitHook;
-      };
-
-      ".hammerspoon" = {
-        source = ./.config/hammerspoon;
-        recursive = true;
       };
 
       ".local/share/nvim/nix/nvim-treesitter/" = {

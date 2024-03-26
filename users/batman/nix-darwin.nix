@@ -40,7 +40,6 @@
     casks = [
       "1password"
       "amethyst"
-      "hammerspoon"
       "orbstack"
       "raycast"
     ];
@@ -118,7 +117,10 @@
   # Add ability to used TouchID for sudo authentication
   security.pam.enableSudoTouchIdTmux = true; # only works when macbook lid is open
 
-  services.nix-daemon.enable = true;
+  services = {
+    # karabiner-elements.enable = true;
+    nix-daemon.enable = true;
+  };
 
   # The user should already exist, but we need to set this up so Nix knows
   # what our home directory is (https://github.com/LnL7/nix-darwin/issues/423).
