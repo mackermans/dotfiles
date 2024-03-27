@@ -97,8 +97,33 @@
       # other macOS's defaults configuration.
       # ......
       dock = {
+        # auto show and hide dock
         autohide = true;
-        show-recents = false; # disable recent apps
+
+        # remove delay for showing dock
+        autohide-delay = 0.0;
+
+        # how fast is the dock showing animation
+        autohide-time-modifier = 0.2;
+
+        expose-animation-duration = 0.2;
+        tilesize = 48;
+
+        launchanim = false;
+
+        static-only = false;
+
+        showhidden = true;
+
+        show-recents = false;
+
+        show-process-indicators = true;
+        orientation = "bottom";
+
+        mru-spaces = false;
+
+        # mouse in top right corner will (5) start screensaver
+        wvous-tr-corner = 5;
       };
 
       NSGlobalDomain.AppleFontSmoothing = 1;
