@@ -97,7 +97,6 @@
 
         # Development Tools
         delta # git diff tool
-        devbox # dev environment
         fzf # fuzzy finder
         graphite-cli # git stacks cli
         lazygit # git management cli
