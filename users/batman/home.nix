@@ -103,6 +103,7 @@
         delta # git diff tool
         fzf # fuzzy finder
         graphite-cli # git stacks cli
+        mise # package manager
         lazygit # git management cli
         nodePackages_latest.pnpm # node package manager
         nodejs_21 # nodejs v21
