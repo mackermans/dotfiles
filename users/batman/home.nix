@@ -16,6 +16,10 @@
       source = ./.config/alacritty/catppuccin;
       recursive = true;
     };
+    "direnv" = {
+      source = ./.config/direnv;
+      recursive = true;
+    };
     "karabiner" = {
       source = ./.config/karabiner;
       recursive = true;
