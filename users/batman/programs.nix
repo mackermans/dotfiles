@@ -245,6 +245,21 @@
       '';
 
       shellAbbrs = {
+        jn = "jj new";
+        jnm = "jj new -m";
+        jdm = "jj describe -m";
+        jc = "jj commit";
+        jcm = "jj commit -m";
+        jgf = "jj git fetch";
+        jgp = "jj git push";
+        jd = "jj diff";
+        jlog = "jj log";
+        jst = "jj status";
+        jbc = "jj branch create";
+        jbl = "jj branch list";
+        jbs = "jj branch set";
+        jbsel = "jj branch set \"(git branch | fzf)\"";
+
         gci = "git checkout-interactive";
         t = "tmux";
         tf = "terraform";
