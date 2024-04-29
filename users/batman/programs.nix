@@ -271,6 +271,7 @@
 
       shellAliases = {
         cat = "bat";
+        vimdiff = "vim -d";
       };
     };
 
