@@ -370,6 +370,9 @@
           key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIARYUd5GUouM1r3YV5aEfwQryc1/7wnA1+Kys/bnV60O";
           sign-all = true;
         };
+        ui = {
+          merge-editor = "vimdiff";
+        };
         user = {
           email = "4571935+mackermans@users.noreply.github.com";
           name = "Maarten Ackermans";
