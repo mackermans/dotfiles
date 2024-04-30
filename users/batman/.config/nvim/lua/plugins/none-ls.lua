@@ -10,6 +10,12 @@ return {
         -- GitHub Actions
         nls.builtins.diagnostics.actionlint,
 
+        -- Golang
+        nls.builtins.code_actions.gomodifytags,
+        nls.builtins.code_actions.impl,
+        nls.builtins.formatting.goimports,
+        nls.builtins.formatting.gofumpt,
+
         -- JavaScript/TypeScript
         nls.builtins.formatting.prettier.with({
           condition = function(utils)

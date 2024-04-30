@@ -123,6 +123,12 @@
         actionlint # github action linter
         # graphql
         nodePackages_latest.graphql-language-service-cli # graphql language server
+        # go
+        gopls # go language server
+        gomodifytags # go struct tag generator
+        impl # go method stub generator for interfaces
+        gofumpt # stricter gofmt
+        gotools # collection of static analysis tools for go (goimports, etc.)
         # javascript/typescript
         quick-lint-js # javascript/typescript linter
         nodePackages_latest.typescript-language-server # typescript language server
