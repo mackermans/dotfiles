@@ -162,6 +162,7 @@
         yq-go # yaml/toml/xml parser
 
         # Utilities and Misc
+        ast-grep # grep for code
         comma # run any nix package as a one-off command
         fd # better find
         glow # markdown preview
