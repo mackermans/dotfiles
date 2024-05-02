@@ -166,6 +166,7 @@
         comma # run any nix package as a one-off command
         fd # better find
         glow # markdown preview
+        moreutils # more unix utilities (sponge, etc.)
         neo4j # graph database
         ripgrep # better grep
         trash-cli # trash cli for safer rm
