@@ -450,7 +450,7 @@
       baseIndex = 1;
       clock24 = true;
       enable = true;
-      escapeTime = 0;
+      escapeTime = 10;
 
       extraConfig = ''
         # iTerm2 shell integration
@@ -466,25 +466,23 @@
         bind r source-file ${config.xdg.configHome}/tmux/tmux.conf \; display "Reloaded!"
 
         # New tab and pane splitting
-        bind -n M-t new-window -a -c "#{pane_current_path}"
-        bind -n M-d split-window -h -c "#{pane_current_path}"
-        bind -n M-D split-window -v -c "#{pane_current_path}"
+        bind t new-window -a -c "#{pane_current_path}"
+        bind d split-window -h -c "#{pane_current_path}"
+        bind D split-window -v -c "#{pane_current_path}"
 
         # Status bar
         set-option -g status-position top
         set -g status 2 # 2 lines high
         set -g "status-format[1]" "" # blank line
 
+        # Resize panes
+        bind j resize-pane -D 5
+        bind k resize-pane -U 5
+        bind l resize-pane -R 5
+        bind h resize-pane -L 5
+
         # Fullscreen
-        bind -n M-f resize-pane -Z
-
-        # Kill shortcuts
-        bind -n C-M-w kill-window
-        bind -n C-M-q confirm -p "Kill this tmux session?" kill-session
-
-        # Cycle previous/next pane
-        bind -n M-[ select-pane -t :.-
-        bind -n M-] select-pane -t :.+
+        bind m resize-pane -Z
 
         # Switch windows
         bind -n M-\{ previous-window
@@ -515,6 +513,7 @@
       plugins = with pkgs; [
         tmuxPlugins.open
         tmuxPlugins.yank
+        tmuxPlugins.vim-tmux-navigator
         {
           plugin = tmuxPlugins.catppuccin.overrideAttrs (_: {
             src = fetchFromGitHub {
@@ -568,8 +567,8 @@
         # }
       ];
 
-      # Use C-Space as prefix
-      prefix = "C-Space";
+      # Use C-a as prefix
+      prefix = "C-a";
 
       # Make clipboard work with Neovim, Tmux and OSX
       shell = "${pkgs.fish}/bin/fish";
