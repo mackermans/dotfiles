@@ -106,7 +106,7 @@
         mise # package manager
         lazygit # git management cli
         nodePackages_latest.pnpm # node package manager
-        nodejs_21 # nodejs v21
+        nodejs_22 # nodejs v22
         python3 # python v3
         tilt # k8s dev environment
         watchman # file watcher
