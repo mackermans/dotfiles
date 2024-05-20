@@ -233,6 +233,9 @@
         set --export BUN_INSTALL "$HOME/.bun"
         set --export PATH $BUN_INSTALL/bin $PATH
 
+        # jujutsu
+        set --export JJ_CONFIG "${config.xdg.configHome}/jj/config.toml"
+
         # mise
         mise activate fish | source
 
