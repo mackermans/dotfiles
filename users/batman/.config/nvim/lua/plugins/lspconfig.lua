@@ -9,6 +9,7 @@ return {
       opts.servers = {
         bashls = {},
         biome = {},
+        gleam = {},
         lua_ls = {},
         nixd = {},
         quick_lint_js = {},
