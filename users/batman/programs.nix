@@ -471,9 +471,7 @@
         bind D split-window -v -c "#{pane_current_path}"
 
         # Status bar
-        set-option -g status-position top
-        set -g status 2 # 2 lines high
-        set -g "status-format[1]" "" # blank line
+        set-option -g status-position bottom
 
         # Resize panes
         bind j resize-pane -D 5
@@ -483,20 +481,6 @@
 
         # Fullscreen
         bind m resize-pane -Z
-
-        # Switch windows
-        bind -n M-\{ previous-window
-        bind -n M-\} next-window
-
-        bind -n M-1 select-window -t 1
-        bind -n M-2 select-window -t 2
-        bind -n M-3 select-window -t 3
-        bind -n M-4 select-window -t 4
-        bind -n M-5 select-window -t 5
-        bind -n M-6 select-window -t 6
-        bind -n M-7 select-window -t 7
-        bind -n M-8 select-window -t 8
-        bind -n M-9 select-window -t 9
 
         # copy-mode-vi keybindings (enter copy mode with prefix + [)
         bind -T copy-mode-vi v send-keys -X begin-selection
@@ -515,23 +499,19 @@
         tmuxPlugins.yank
         tmuxPlugins.vim-tmux-navigator
         {
-          plugin = tmuxPlugins.catppuccin.overrideAttrs (_: {
-            src = fetchFromGitHub {
-              owner = "catppuccin";
-              repo = "tmux";
-              rev = "89ad057ebd47a3052d55591c2dcab31be3825a49";
-              hash = "sha256-4JFuX9clpPr59vnCUm6Oc5IOiIc/v706fJmkaCiY2Hc=";
-            };
-          });
+          plugin = tmuxPlugins.catppuccin;
           extraConfig = ''
+            set -g @catppuccin_status_background "default"
+
             set -g @catppuccin_flavour 'mocha'
             set -g @catppuccin_window_tabs_enabled on
             set -g @catppuccin_date_time_text "%H:%M"
 
-            set -g @catppuccin_window_left_separator ""
-            set -g @catppuccin_window_right_separator " "
-            set -g @catppuccin_window_middle_separator " █"
-            set -g @catppuccin_window_number_position "right"
+            set -g @catppuccin_window_left_separator ""
+            set -g @catppuccin_window_right_separator "█"
+            set -g @catppuccin_window_middle_separator " "
+            set -g @catppuccin_window_number_position "left"
+            set -g @catppuccin_window_status_enable "yes"
 
             set -g @catppuccin_window_default_fill "number"
             set -g @catppuccin_window_default_text "#W"
@@ -539,14 +519,14 @@
             set -g @catppuccin_window_current_fill "number"
             set -g @catppuccin_window_current_text "#W"
 
-            set -g @catppuccin_status_modules_right "date_time"
-            set -g @catppuccin_status_left_separator  " "
-            set -g @catppuccin_status_right_separator ""
-            set -g @catppuccin_status_right_separator_inverse "no"
-            set -g @catppuccin_status_fill "icon"
-            set -g @catppuccin_status_connect_separator "no"
-
             set -g @catppuccin_directory_text "#{pane_current_path}"
+
+            set -g @catppuccin_status_modules_left ""
+            set -g @catppuccin_status_modules_right "date_time"
+            set -g @catppuccin_status_left_separator  " "
+            set -g @catppuccin_status_right_separator ""
+            set -g @catppuccin_status_fill "all"
+            set -g @catppuccin_status_connect_separator "yes"
 
           '';
         }
