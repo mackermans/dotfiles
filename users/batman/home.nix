@@ -101,6 +101,7 @@
 
         # Development Tools
         delta # git diff tool
+        elixir # elixir language
         erlang # erlang language
         fzf # fuzzy finder
         gleam # gleam language
