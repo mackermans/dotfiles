@@ -3,6 +3,7 @@ return {
   opts = {
     defaults = {
       ["<leader>gC"] = { name = "+git conflict" },
+      ["<leader>t"] = { name = "+test" },
     },
   },
 }
