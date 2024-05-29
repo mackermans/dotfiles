@@ -101,13 +101,16 @@
 
         # Development Tools
         delta # git diff tool
+        erlang # erlang language
         fzf # fuzzy finder
+        gleam # gleam language
         graphite-cli # git stacks cli
         mise # package manager
         lazygit # git management cli
         nodePackages_latest.pnpm # node package manager
         nodejs_22 # nodejs v22
         python3 # python v3
+        rebar3 # erlang build tool
         tilt # k8s dev environment
         watchman # file watcher
 
