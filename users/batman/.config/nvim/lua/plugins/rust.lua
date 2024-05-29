@@ -125,24 +125,4 @@ return {
       end
     end,
   },
-  {
-    -- remove this fork when this PR has been merged:
-    -- https://github.com/rouge8/neotest-rust/pull/57
-    "gollth/neotest-rust",
-    branch = "param",
-  },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    dependencies = {
-      "gollth/neotest-rust",
-    },
-    opts = {
-      adapters = {
-        ["neotest-rust"] = {
-          parameterized_test_discovery = "treesitter",
-        },
-      },
-    },
-  },
 }
