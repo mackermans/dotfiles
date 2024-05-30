@@ -2,7 +2,32 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.color_scheme = "Catppuccin Mocha"
+local function get_appearance()
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+	return "Dark"
+end
+
+local function get_color_scheme_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return "Catppuccin Mocha"
+	else
+		return "Catppuccin Latte"
+	end
+end
+
+wezterm.on("window-config-reloaded", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	local appearance = window:get_appearance()
+	local scheme = get_color_scheme_for_appearance(appearance)
+	if overrides.color_scheme ~= scheme then
+		overrides.color_scheme = scheme
+		window:set_config_overrides(overrides)
+	end
+end)
+
+config.color_scheme = get_color_scheme_for_appearance(get_appearance())
 config.xcursor_theme = "Adwaita"
 
 config.enable_tab_bar = false
