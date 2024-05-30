@@ -123,6 +123,8 @@
         nodePackages_latest.bash-language-server # bash language server
         shellcheck # shell linter
         shfmt # shell formatter
+        # elixir
+        lexical # elixir language server
         # github actions
         actionlint # github action linter
         # graphql

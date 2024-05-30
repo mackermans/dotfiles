@@ -10,6 +10,9 @@ return {
         bashls = {},
         biome = {},
         gleam = {},
+        lexical = {
+          cmd = { "lexical" },
+        },
         lua_ls = {},
         nixd = {},
         quick_lint_js = {},
