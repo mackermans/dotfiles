@@ -8,109 +8,6 @@
   ...
 }: {
   programs = {
-    alacritty = {
-      enable = hasGui;
-
-      settings = {
-        cursor = {
-          style = "Block";
-          unfocused_hollow = true;
-        };
-
-        env.TERM = "xterm-256color";
-
-        font = {
-          normal = {
-            family = "FiraCode Nerd Font Mono";
-            style = "Regular";
-          };
-          bold = {
-            family = "FiraCode Nerd Font Mono";
-            style = "Bold";
-          };
-          italic = {
-            family = "FiraCode Nerd Font Mono";
-            style = "Italic";
-          };
-          bold_italic = {
-            family = "FiraCode Nerd Font Mono";
-            style = "Bold-Italic";
-          };
-          size = 16.0;
-        };
-
-        hints = {
-          enabled = [
-            {
-              binding = {
-                mods = "Command";
-                key = "Period";
-              };
-              command = "open";
-              hyperlinks = true;
-            }
-          ];
-        };
-
-        import = [
-          "${config.xdg.configHome}/alacritty/catppuccin/catppuccin-macchiato.yml"
-        ];
-
-        key_bindings = [
-          {
-            key = "K";
-            mods = "Command";
-            chars = "ClearHistory";
-          }
-          {
-            key = "V";
-            mods = "Command";
-            action = "Paste";
-          }
-          {
-            key = "C";
-            mods = "Command";
-            action = "Copy";
-          }
-          {
-            key = "Key0";
-            mods = "Command";
-            action = "ResetFontSize";
-          }
-          {
-            key = "Equals";
-            mods = "Command";
-            action = "IncreaseFontSize";
-          }
-          {
-            key = "Minus";
-            mods = "Command";
-            action = "DecreaseFontSize";
-          }
-        ];
-
-        selection = {
-          # This string contains all characters that are used as separators for
-          # "semantic words" in Alacritty.
-          semantic_escape_chars = ",│`|:\"' ()[]{}<>\t";
-          # When set to `true`, selected text will be copied to the primary clipboard.
-          save_to_clipboard = true;
-        };
-
-        window = {
-          # decorations = "None";
-          decorations_theme_variant = "Dark";
-          dynamic_padding = true;
-          dynamic_title = true;
-          option_as_alt = "Both";
-          padding = {
-            x = 10;
-            y = 0;
-          };
-        };
-      };
-    };
-
     # better "cat" util
     bat = {
       enable = true;
@@ -386,51 +283,6 @@
       };
     };
 
-    kitty = {
-      enable = hasGui;
-      extraConfig = ''
-        map kitty_mod+t no_op
-      '';
-      font = {
-        name = "FiraCode Nerd Font Mono";
-        size = 16;
-      };
-      keybindings = {
-        # "cmd+d" = "launch --location=vsplit --cwd=current";
-        # "cmd+shift+d" = "launch --location=hsplit --cwd=current";
-
-        # "cmd+[" = "previous_window";
-        # "cmd+]" = "next_window";
-
-        # "cmd+1" = "goto_tab 1";
-        # "cmd+2" = "goto_tab 2";
-        # "cmd+3" = "goto_tab 3";
-        # "cmd+4" = "goto_tab 4";
-        # "cmd+5" = "goto_tab 5";
-        # "cmd+6" = "goto_tab 6";
-        # "cmd+7" = "goto_tab 7";
-        # "cmd+8" = "goto_tab 8";
-        # "cmd+9" = "goto_tab 9";
-      };
-      settings = {
-        enabled_layouts = "splits:split_axis=horizontal";
-        font_features = "+cv02 +cv05 +cv09 +cv14 +ss04 +cv16 +cv31 +cv25 +cv26 +cv32 +cv28 +ss10 +zero +onum";
-        # hide_window_decorations = "yes";
-        # macos_option_as_alt = "yes";
-        # macos_titlebar_color = "background";
-        tab_bar_min_tabs = 2;
-        tab_bar_edge = "bottom";
-        tab_bar_style = "powerline";
-        tab_powerline_style = "slanted";
-        tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
-        window_padding_width = "0 10 0 10";
-      };
-      shellIntegration = {
-        enableFishIntegration = true;
-      };
-      theme = "Catppuccin-Macchiato";
-    };
-
     neovim = {
       defaultEditor = true;
       enable = true;
@@ -609,14 +461,6 @@
           },
         }
       '';
-    };
-
-    zellij = {
-      enable = false;
-      enableFishIntegration = true;
-      settings = {
-        theme = "catppuccin-macchiato";
-      };
     };
 
     zoxide = {
