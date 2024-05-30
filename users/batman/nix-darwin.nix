@@ -40,6 +40,7 @@
     casks = [
       "1password"
       "amethyst"
+      "bartender"
       "orbstack"
       "raycast"
     ];
