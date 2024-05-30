@@ -1,7 +1,6 @@
 return {
   {
     "nvim-neotest/neotest",
-    optional = true,
     dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-neotest/neotest-jest",
@@ -74,9 +73,14 @@ return {
       adapters = {
         ["neotest-jest"] = {
           jestCommand = "pnpm jest --no-coverage --",
-          -- jestConfigFile = "custom.jest.config.ts",
+          -- jestConfigFile = "jest.config.ts"
           -- env = { CI = true },
-          cwd = function(path)
+          cwd = function(file)
+            local lib = require("neotest.lib")
+            local rootPath = lib.files.match_root_pattern("package.json")(file)
+            if rootPath then
+              return rootPath
+            end
             return vim.fn.getcwd()
           end,
         },
