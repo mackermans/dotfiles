@@ -41,6 +41,7 @@
       "1password"
       "amethyst"
       "bartender"
+      "karabiner-elements"
       "orbstack"
       "raycast"
     ];
@@ -144,7 +145,6 @@
   security.pam.enableSudoTouchIdTmux = true; # only works when macbook lid is open
 
   services = {
-    # karabiner-elements.enable = true;
     nix-daemon.enable = true;
   };
 
