@@ -3,7 +3,6 @@
   lib,
   osConfig,
   pkgs,
-  hasGui,
   isDarwin,
   ...
 }: {
@@ -12,19 +11,25 @@
     bat = {
       enable = true;
       config = {
-        theme = "catppuccin-macchiato";
+        theme = "catppuccin-mocha";
       };
-      themes = {
-        catppuccin-macchiato = {
+      themes = let
+        src =
+          pkgs.fetchFromGitHub
+          {
+            owner = "catppuccin";
+            repo = "bat";
+            rev = "477622171ec0529505b0ca3cada68fc9433648c6";
+            sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
+          };
+      in {
+        catppuccin-latte = {
+          file = "Catppuccin-latte.tmTheme";
+          inherit src;
+        };
+        catppuccin-mocha = {
           file = "Catppuccin-mocha.tmTheme";
-          src =
-            pkgs.fetchFromGitHub
-            {
-              owner = "catppuccin";
-              repo = "bat";
-              rev = "477622171ec0529505b0ca3cada68fc9433648c6";
-              sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
-            };
+          inherit src;
         };
       };
     };
@@ -133,9 +138,6 @@
         # jujutsu
         set --export JJ_CONFIG "${config.xdg.configHome}/jj/config.toml"
 
-        # mise
-        mise activate fish | source
-
         ${
           if isDarwin
           then ''
@@ -144,6 +146,16 @@
 
             # 1password ssh agent compatibility for git used by jujutsu
             set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+            # mise
+            mise activate fish | source
+
+            set --local appearance (defaults read -g AppleInterfaceStyle)
+            if test appearance = "Dark"
+              set --export BAT_THEME "Catppuccin-mocha"
+            else
+              set --export BAT_THEME "Catppuccin-latte"
+            end
           ''
           else ''
           ''
@@ -355,7 +367,6 @@
           extraConfig = ''
             set -g @catppuccin_status_background "default"
 
-            set -g @catppuccin_flavour 'mocha'
             set -g @catppuccin_window_tabs_enabled on
             set -g @catppuccin_date_time_text "%H:%M"
 
@@ -379,6 +390,12 @@
             set -g @catppuccin_status_right_separator ""
             set -g @catppuccin_status_fill "all"
             set -g @catppuccin_status_connect_separator "yes"
+
+            set -g @catppuccin_flavour "mocha"
+            bind T \
+              if-shell '[ "$(tmux show-options -g | grep "@catppuccin_flavour" | awk "{print \$2}")" = "mocha" ]' \
+                'set -g @catppuccin_flavour "latte" ; display-message "Changed theme to Catppuccin-latte"' \
+                'set -g @catppuccin_flavour "mocha" ; display-message "Changed theme to Catppuccin-mocha"'
 
           '';
         }
