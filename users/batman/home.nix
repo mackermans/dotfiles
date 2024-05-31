@@ -24,6 +24,10 @@
       source = ./.config/nvim;
       recursive = true;
     };
+    "wezterm" = {
+      source = ./.config/wezterm;
+      recursive = true;
+    };
   };
 
   home = {
@@ -74,6 +78,7 @@
         tldr # community-maintained man pages
         vim # text editor
         wakeonlan # wake on lan
+        wezterm # terminal emulator
 
         # Fetching Tools
         bruno # api explorer

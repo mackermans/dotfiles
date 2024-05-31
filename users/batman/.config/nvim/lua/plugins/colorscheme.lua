@@ -1,6 +1,11 @@
 return {
-  "LazyVim/LazyVim",
-  opts = {
-    colorscheme = "catppuccin-mocha",
+  {
+    "EdenEast/nightfox.nvim",
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "nightfox",
+    },
   },
 }

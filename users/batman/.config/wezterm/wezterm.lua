@@ -11,9 +11,9 @@ end
 
 local function get_color_scheme_for_appearance(appearance)
 	if appearance:find("Dark") then
-		return "Catppuccin Mocha"
+		return "nightfox"
 	else
-		return "Catppuccin Latte"
+		return "dayfox"
 	end
 end
 

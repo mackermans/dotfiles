@@ -11,25 +11,16 @@
     bat = {
       enable = true;
       config = {
-        theme = "catppuccin-mocha";
+        theme = "nightfox";
       };
-      themes = let
-        src =
-          pkgs.fetchFromGitHub
-          {
-            owner = "catppuccin";
-            repo = "bat";
-            rev = "477622171ec0529505b0ca3cada68fc9433648c6";
-            sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
-          };
-      in {
-        catppuccin-latte = {
-          file = "Catppuccin-latte.tmTheme";
-          inherit src;
+      themes = {
+        dayfox = {
+          file = "dayfox.tmTheme";
+          src = ./.config/bat;
         };
-        catppuccin-mocha = {
-          file = "Catppuccin-mocha.tmTheme";
-          inherit src;
+        nightfox = {
+          file = "nightfox.tmTheme";
+          src = ./.config/bat;
         };
       };
     };
@@ -138,6 +129,42 @@
         # jujutsu
         set --export JJ_CONFIG "${config.xdg.configHome}/jj/config.toml"
 
+        # Nightfox Color Palette
+        # Style: nightfox
+        # Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox.fish
+        set -l foreground cdcecf
+        set -l selection 2b3b51
+        set -l comment 738091
+        set -l red c94f6d
+        set -l orange f4a261
+        set -l yellow dbc074
+        set -l green 81b29a
+        set -l purple 9d79d6
+        set -l cyan 63cdcf
+        set -l pink d67ad2
+
+        # Syntax Highlighting Colors
+        set -g fish_color_normal $foreground
+        set -g fish_color_command $cyan
+        set -g fish_color_keyword $pink
+        set -g fish_color_quote $yellow
+        set -g fish_color_redirection $foreground
+        set -g fish_color_end $orange
+        set -g fish_color_error $red
+        set -g fish_color_param $purple
+        set -g fish_color_comment $comment
+        set -g fish_color_selection --background=$selection
+        set -g fish_color_search_match --background=$selection
+        set -g fish_color_operator $green
+        set -g fish_color_escape $pink
+        set -g fish_color_autosuggestion $comment
+
+        # Completion Pager Colors
+        set -g fish_pager_color_progress $comment
+        set -g fish_pager_color_prefix $cyan
+        set -g fish_pager_color_completion $foreground
+        set -g fish_pager_color_description $comment
+
         ${
           if isDarwin
           then ''
@@ -150,11 +177,11 @@
             # mise
             mise activate fish | source
 
-            set --local appearance (defaults read -g AppleInterfaceStyle)
-            if test appearance = "Dark"
-              set --export BAT_THEME "Catppuccin-mocha"
+            set --local appearance (defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo "dark" || echo "light")
+            if test appearance = "light"
+              set --export BAT_THEME "dayfox"
             else
-              set --export BAT_THEME "Catppuccin-latte"
+              set --export BAT_THEME "nightfox"
             end
           ''
           else ''
@@ -350,6 +377,29 @@
         bind -T copy-mode-vi v send-keys -X begin-selection
         bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
         bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+        # Nightfox colors for Tmux
+        # Style: nightfox
+        # Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox.tmux
+        set -g mode-style "fg=#131a24,bg=#aeafb0"
+        set -g message-style "fg=#131a24,bg=#aeafb0"
+        set -g message-command-style "fg=#131a24,bg=#aeafb0"
+        set -g pane-border-style "fg=#aeafb0"
+        set -g pane-active-border-style "fg=#719cd6"
+        set -g status "on"
+        set -g status-justify "left"
+        set -g status-style "fg=#aeafb0,bg=#131a24"
+        set -g status-left-length "100"
+        set -g status-right-length "100"
+        set -g status-left-style NONE
+        set -g status-right-style NONE
+        set -g status-left "#[fg=#131a24,bg=#719cd6,bold] #S #[fg=#719cd6,bg=#131a24,nobold,nounderscore,noitalics]"
+        set -g status-right "#[fg=#131a24,bg=#131a24,nobold,nounderscore,noitalics]#[fg=#719cd6,bg=#131a24] #{prefix_highlight} #[fg=#aeafb0,bg=#131a24,nobold,nounderscore,noitalics]#[fg=#131a24,bg=#aeafb0] %Y-%m-%d  %I:%M %p #[fg=#719cd6,bg=#aeafb0,nobold,nounderscore,noitalics]#[fg=#131a24,bg=#719cd6,bold] #h "
+        setw -g window-status-activity-style "underscore,fg=#71839b,bg=#131a24"
+        setw -g window-status-separator ""
+        setw -g window-status-style "NONE,fg=#71839b,bg=#131a24"
+        setw -g window-status-format "#[fg=#131a24,bg=#131a24,nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=#131a24,bg=#131a24,nobold,nounderscore,noitalics]"
+        setw -g window-status-current-format "#[fg=#131a24,bg=#aeafb0,nobold,nounderscore,noitalics]#[fg=#131a24,bg=#aeafb0,bold] #I  #W #F #[fg=#aeafb0,bg=#131a24,nobold,nounderscore,noitalics]"
       '';
 
       # Use vi keybindings
@@ -362,43 +412,6 @@
         tmuxPlugins.open
         tmuxPlugins.yank
         tmuxPlugins.vim-tmux-navigator
-        {
-          plugin = tmuxPlugins.catppuccin;
-          extraConfig = ''
-            set -g @catppuccin_status_background "default"
-
-            set -g @catppuccin_window_tabs_enabled on
-            set -g @catppuccin_date_time_text "%H:%M"
-
-            set -g @catppuccin_window_left_separator ""
-            set -g @catppuccin_window_right_separator "█"
-            set -g @catppuccin_window_middle_separator " "
-            set -g @catppuccin_window_number_position "left"
-            set -g @catppuccin_window_status_enable "yes"
-
-            set -g @catppuccin_window_default_fill "number"
-            set -g @catppuccin_window_default_text "#W"
-
-            set -g @catppuccin_window_current_fill "number"
-            set -g @catppuccin_window_current_text "#W"
-
-            set -g @catppuccin_directory_text "#{pane_current_path}"
-
-            set -g @catppuccin_status_modules_left ""
-            set -g @catppuccin_status_modules_right "date_time"
-            set -g @catppuccin_status_left_separator  " "
-            set -g @catppuccin_status_right_separator ""
-            set -g @catppuccin_status_fill "all"
-            set -g @catppuccin_status_connect_separator "yes"
-
-            set -g @catppuccin_flavour "mocha"
-            bind T \
-              if-shell '[ "$(tmux show-options -g | grep "@catppuccin_flavour" | awk "{print \$2}")" = "mocha" ]' \
-                'set -g @catppuccin_flavour "latte" ; display-message "Changed theme to Catppuccin-latte"' \
-                'set -g @catppuccin_flavour "mocha" ; display-message "Changed theme to Catppuccin-mocha"'
-
-          '';
-        }
         # {
         #   plugin = tmuxPlugins.resurrect;
         #   extraConfig = ''
@@ -424,11 +437,6 @@
 
       # Use 256 colors
       terminal = "xterm-256color";
-    };
-
-    wezterm = {
-      enable = true;
-      extraConfig = builtins.readFile ./.config/wezterm/config.lua;
     };
 
     xplr = {
