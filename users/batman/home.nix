@@ -68,122 +68,122 @@
     # release notes.
     stateVersion = "23.05"; # Please read the comment before changing.
 
-    packages = with pkgs;
+    packages =
       [
         # System Tools
-        btop # process monitor
-        neofetch # system info
-        nmap # network scanner
-        rsync # file sync
-        tldr # community-maintained man pages
-        vim # text editor
-        wakeonlan # wake on lan
-        wezterm # terminal emulator
+        pkgs.btop # process monitor
+        pkgs.neofetch # system info
+        pkgs.nmap # network scanner
+        pkgs.rsync # file sync
+        pkgs.tldr # community-maintained man pages
+        pkgs.vim # text editor
+        pkgs.wakeonlan # wake on lan
+        pkgs.wezterm # terminal emulator
 
         # Fetching Tools
-        bruno # api explorer
-        curl # fetch
-        httpie # fetch cli
-        wget # fetch
+        pkgs.bruno # api explorer
+        pkgs.curl # fetch
+        pkgs.httpie # fetch cli
+        pkgs.wget # fetch
 
         # Cloud and Infrastructure Management
-        aws-vault # aws profile and credentials manager
-        awscli2 # aws cli
-        granted # aws role switcher
-        kubectl # k8s management cli
-        kubectx # k8s context switcher
-        kubernetes-helm # k8s package manager
-        terraform # terraform cli for infrastructure provisioning
+        pkgs.aws-vault # aws profile and credentials manager
+        pkgs.awscli2 # aws cli
+        pkgs.granted # aws role switcher
+        pkgs.kubectl # k8s management cli
+        pkgs.kubectx # k8s context switcher
+        pkgs.kubernetes-helm # k8s package manager
+        pkgs.terraform # terraform cli for infrastructure provisioning
 
         # Security and Encryption
-        _1password # 1password: password manager cli
-        age # encryption cli
-        sops # encrypted file editor
+        pkgs._1password # 1password: password manager cli
+        pkgs.age # encryption cli
+        pkgs.sops # encrypted file editor
 
         # Development Tools
-        delta # git diff tool
-        elixir # elixir language
-        erlang # erlang language
-        fzf # fuzzy finder
-        gleam # gleam language
-        graphite-cli # git stacks cli
-        mise # package manager
-        lazygit # git management cli
-        nodePackages_latest.pnpm # node package manager
-        nodejs_22 # nodejs v22
-        python3 # python v3
-        rebar3 # erlang build tool
-        tilt # k8s dev environment
-        watchman # file watcher
+        pkgs.delta # git diff tool
+        pkgs.elixir # elixir language
+        pkgs.erlang # erlang language
+        pkgs.fzf # fuzzy finder
+        pkgs.gleam # gleam language
+        pkgs.graphite-cli # git stacks cli
+        pkgs.mise # package manager
+        pkgs.lazygit # git management cli
+        pkgs.nodePackages_latest.pnpm # node package manager
+        pkgs.nodejs_22 # nodejs v22
+        pkgs.python3 # python v3
+        pkgs.rebar3 # erlang build tool
+        pkgs.tilt # k8s dev environment
+        pkgs.watchman # file watcher
 
         # Nix
-        cachix # nix binary cache manager
+        pkgs.cachix # nix binary cache manager
 
         # Language Servers, Linters and Formatters
         # bash
-        nodePackages_latest.bash-language-server # bash language server
-        shellcheck # shell linter
-        shfmt # shell formatter
+        pkgs.nodePackages_latest.bash-language-server # bash language server
+        pkgs.shellcheck # shell linter
+        pkgs.shfmt # shell formatter
         # elixir
-        lexical # elixir language server
+        pkgs.lexical # elixir language server
         # github actions
-        actionlint # github action linter
+        pkgs.actionlint # github action linter
         # graphql
-        nodePackages_latest.graphql-language-service-cli # graphql language server
+        pkgs.nodePackages_latest.graphql-language-service-cli # graphql language server
         # go
-        gopls # go language server
-        gomodifytags # go struct tag generator
-        impl # go method stub generator for interfaces
-        gofumpt # stricter gofmt
-        gotools # collection of static analysis tools for go (goimports, etc.)
+        pkgs.gopls # go language server
+        pkgs.gomodifytags # go struct tag generator
+        pkgs.impl # go method stub generator for interfaces
+        pkgs.gofumpt # stricter gofmt
+        pkgs.gotools # collection of static analysis tools for go (goimports, etc.)
         # javascript/typescript
-        quick-lint-js # javascript/typescript linter
-        nodePackages_latest.typescript-language-server # typescript language server
+        pkgs.quick-lint-js # javascript/typescript linter
+        pkgs.nodePackages_latest.typescript-language-server # typescript language server
         # lua
-        lua-language-server # lua language server
-        stylua # lua formatter
+        pkgs.lua-language-server # lua language server
+        pkgs.stylua # lua formatter
         # nix
-        alejandra # nix formatter
-        deadnix # nix linter
-        nixd # nix language server
-        statix # nix linter
+        pkgs.alejandra # nix formatter
+        pkgs.deadnix # nix linter
+        pkgs.nixd # nix language server
+        pkgs.statix # nix linter
         # rust
-        rust-analyzer # rust language server
+        pkgs.rust-analyzer # rust language server
         # svelte
-        nodePackages_latest.svelte-language-server # svelte language server
+        pkgs.nodePackages_latest.svelte-language-server # svelte language server
         # tailwind
-        tailwindcss-language-server # tailwind language server
+        pkgs.tailwindcss-language-server # tailwind language server
         # toml
-        taplo # toml language server
+        pkgs.taplo # toml language server
         # yaml
-        yaml-language-server # yaml language server
+        pkgs.yaml-language-server # yaml language server
         # misc
-        biome # linter and formatter
-        nodePackages_latest.prettier # formatter
-        vscode-langservers-extracted # vscode language servers (HTML/CSS/JSON/ESLint)
+        pkgs.biome # linter and formatter
+        pkgs.nodePackages_latest.prettier # formatter
+        pkgs.vscode-langservers-extracted # vscode language servers (HTML/CSS/JSON/ESLint)
 
         # JSON and Data Manipulation
-        fx # terminal json viewer
-        gron # json grep
-        jq # json parser
-        yq-go # yaml/toml/xml parser
+        pkgs.fx # terminal json viewer
+        pkgs.gron # json grep
+        pkgs.jq # json parser
+        pkgs.yq-go # yaml/toml/xml parser
 
         # Utilities and Misc
-        ast-grep # grep for code
-        comma # run any nix package as a one-off command
-        fd # better find
-        glow # markdown preview
-        moreutils # more unix utilities (sponge, etc.)
-        neo4j # graph database
-        ripgrep # better grep
-        trash-cli # trash cli for safer rm
-        websocat # websocket cli
+        pkgs.ast-grep # grep for code
+        pkgs.comma # run any nix package as a one-off command
+        pkgs.fd # better find
+        pkgs.glow # markdown preview
+        pkgs.moreutils # more unix utilities (sponge, etc.)
+        pkgs.neo4j # graph database
+        pkgs.ripgrep # better grep
+        pkgs.trash-cli # trash cli for safer rm
+        pkgs.websocat # websocket cli
 
         # # It is sometimes useful to fine-tune packages, for example, by applying
         # # overrides. You can do that directly here, just don't forget the
         # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
         # # fonts?
-        (nerdfonts.override {fonts = ["FiraCode"];})
+        (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
 
         # # You can also create simple shell scripts directly inside your
         # # configuration. For example, this adds a command 'my-hello' to your
@@ -204,7 +204,9 @@
       ]
       ++ (
         if !isDarwin && hasGui
-        then with pkgs; [_1password-gui]
+        then [
+          pkgs._1password-gui
+        ]
         else []
       );
 
