@@ -74,10 +74,10 @@
               sha256 = "sha256-ABzVSzM135UeAJ97CUBb9rhK9Pc6ItLSmJQOacq09gQ=";
             };
         }
-        {
-          name = "tide";
-          inherit (pkgs.fishPlugins.tide) src;
-        }
+        # {
+        #   name = "tide";
+        #   inherit (pkgs.fishPlugins.tide) src;
+        # }
       ];
 
       loginShellInit =
@@ -332,6 +332,11 @@
 
     nushell = {
       enable = true;
+    };
+
+    oh-my-posh = {
+      enable = true;
+      settings = builtins.fromTOML (builtins.unsafeDiscardStringContext (builtins.readFile ./.config/oh-my-posh/config.toml));
     };
 
     tmux = {
