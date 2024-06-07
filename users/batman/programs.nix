@@ -98,9 +98,6 @@
         else "";
 
       shellInit = ''
-        set npm_token (sed '1q;d' "$HOME/.npmrc" | awk -F= '{print $2}')
-        set -gx NPM_TOKEN "$npm_token"
-
         # fzf start
 
         # customize keybindings
