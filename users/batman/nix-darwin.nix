@@ -40,6 +40,7 @@
     casks = [
       "1password"
       "amethyst"
+      "arc"
       "karabiner-elements"
       "orbstack"
       "raycast"
