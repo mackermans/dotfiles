@@ -432,7 +432,7 @@
       ];
 
       # Use C-Space as prefix
-      prefix = "C-Space";
+      prefix = "C-a";
 
       # Make clipboard work with Neovim, Tmux and OSX
       shell = "${pkgs.fish}/bin/fish";
