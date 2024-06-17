@@ -42,6 +42,7 @@
       "amethyst"
       "arc"
       "karabiner-elements"
+      "obsidian"
       "orbstack"
       "raycast"
     ];
