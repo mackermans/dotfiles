@@ -176,6 +176,7 @@
         pkgs.moreutils # more unix utilities (sponge, etc.)
         pkgs.neo4j # graph database
         pkgs.ripgrep # better grep
+        pkgs.spotify # music streaming
         pkgs.trash-cli # trash cli for safer rm
         pkgs.websocat # websocket cli
 
