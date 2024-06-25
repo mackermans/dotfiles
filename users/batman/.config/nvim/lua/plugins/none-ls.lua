@@ -17,6 +17,11 @@ return {
         nls.builtins.formatting.gofumpt,
 
         -- JavaScript/TypeScript
+        nls.builtins.formatting.biome.with({
+          condition = function(utils)
+            return utils.root_has_file({ "biome.json" })
+          end,
+        }),
         nls.builtins.formatting.prettier.with({
           condition = function(utils)
             return utils.root_has_file({ ".prettierrc", ".prettierrc.json", ".prettierrc.js", ".prettierrc.cjs" })
