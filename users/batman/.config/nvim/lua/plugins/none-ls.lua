@@ -21,6 +21,24 @@ return {
           condition = function(utils)
             return utils.root_has_file({ "biome.json" })
           end,
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "json",
+            "jsonc",
+            "typescript",
+            "typescriptreact",
+            "css",
+          },
+          args = {
+            "check",
+            "--write",
+            "--unsafe",
+            "--formatter-enabled=true",
+            "--organize-imports-enabled=true",
+            "--skip-errors",
+            "--stdin-file-path=$FILENAME",
+          },
         }),
         nls.builtins.formatting.prettier.with({
           condition = function(utils)
