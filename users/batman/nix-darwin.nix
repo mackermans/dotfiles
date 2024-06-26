@@ -27,13 +27,16 @@
       cleanup = "zap";
     };
 
-    taps = [];
+    taps = [
+      "pulumi/tap"
+    ];
 
     # `brew install`
     brews = [
       # "koekeishiya/formulae/skhd" # hotkey daemon
       # "koekeishiya/formulae/yabai" # tiling window manager
       "pinentry-mac" # gpg passkey agent
+      "pulumi"
     ];
 
     # `brew install --cask`
