@@ -109,8 +109,6 @@
         pkgs.graphite-cli # git stacks cli
         pkgs.mise # package manager
         pkgs.lazygit # git management cli
-        pkgs.nodePackages_latest.pnpm # node package manager
-        pkgs.nodejs_22 # nodejs v22
         pkgs.python3 # python v3
         pkgs.rebar3 # erlang build tool
         pkgs.tilt # k8s dev environment
