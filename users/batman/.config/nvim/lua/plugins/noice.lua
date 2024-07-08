@@ -8,6 +8,14 @@ return {
         silent = true,
       },
     },
+    messages = {
+      view = "mini", -- default view for messages
+      view_error = "mini", -- view for errors
+      view_warn = "mini", -- view for warnings
+    },
+    notify = {
+      view = "mini",
+    },
     presets = {
       bottom_search = false,
       command_palette = true,
