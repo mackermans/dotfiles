@@ -109,6 +109,7 @@
         pkgs.graphite-cli # git stacks cli
         pkgs.mise # package manager
         pkgs.lazygit # git management cli
+        pkgs.postgresql_16 # postgresql v16
         pkgs.python3 # python v3
         pkgs.rebar3 # erlang build tool
         pkgs.tilt # k8s dev environment
