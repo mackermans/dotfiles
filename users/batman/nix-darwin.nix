@@ -44,6 +44,7 @@
       "1password"
       "amethyst"
       "arc"
+      "betterdisplay"
       "karabiner-elements"
       "obsidian"
       "orbstack"
