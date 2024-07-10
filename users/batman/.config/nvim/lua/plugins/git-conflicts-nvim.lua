@@ -1,5 +1,13 @@
 return {
   {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = function()
+      local wk = require("which-key")
+      wk.add({ "<leader>gC", group = "+git conflict" })
+    end,
+  },
+  {
     "akinsho/git-conflict.nvim",
     config = function()
       require("git-conflict").setup({

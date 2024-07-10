@@ -1,5 +1,13 @@
 return {
   {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = function()
+      local wk = require("which-key")
+      wk.add({ "<leader>t", group = "+test" })
+    end,
+  },
+  {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-neotest/nvim-nio",
