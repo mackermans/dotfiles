@@ -11,9 +11,9 @@ end
 
 local function get_color_scheme_for_appearance(appearance)
 	if appearance:find("Dark") then
-		return "nightfox"
+		return "Tokyo Night Moon"
 	else
-		return "dayfox"
+		return "Tokyo Night Day"
 	end
 end
 

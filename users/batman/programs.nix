@@ -10,19 +10,6 @@
     # better "cat" util
     bat = {
       enable = true;
-      config = {
-        theme = "nightfox";
-      };
-      themes = {
-        dayfox = {
-          file = "dayfox.tmTheme";
-          src = ./.config/bat;
-        };
-        nightfox = {
-          file = "nightfox.tmTheme";
-          src = ./.config/bat;
-        };
-      };
     };
 
     direnv = {
@@ -117,6 +104,32 @@
         # find hidden directories and exclude .git
         set fzf_fd_opts --hidden --exclude=.git
 
+        # TokyoNight Moon for FZF
+        # https://github.com/folke/tokyonight.nvim/blob/78cc1ae48a26990dd028f4098892a5d6c041e194/extras/fzf/tokyonight_moon.sh
+        set --export FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS \
+          --highlight-line \
+          --info=inline-right \
+          --ansi \
+          --layout=reverse \
+          --border=none
+          --color=bg+:#2d3f76 \
+          --color=bg:#1e2030 \
+          --color=border:#589ed7 \
+          --color=fg:#c8d3f5 \
+          --color=gutter:#1e2030 \
+          --color=header:#ff966c \
+          --color=hl+:#65bcff \
+          --color=hl:#65bcff \
+          --color=info:#545c7e \
+          --color=marker:#ff007c \
+          --color=pointer:#ff007c \
+          --color=prompt:#65bcff \
+          --color=query:#c8d3f5:regular \
+          --color=scrollbar:#589ed7 \
+          --color=separator:#ff966c \
+          --color=spinner:#ff007c \
+        "
+
         # fzf end
 
         # bun
@@ -126,41 +139,7 @@
         # jujutsu
         set --export JJ_CONFIG "${config.xdg.configHome}/jj/config.toml"
 
-        # Nightfox Color Palette
-        # Style: nightfox
-        # Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox.fish
-        set -l foreground cdcecf
-        set -l selection 2b3b51
-        set -l comment 738091
-        set -l red c94f6d
-        set -l orange f4a261
-        set -l yellow dbc074
-        set -l green 81b29a
-        set -l purple 9d79d6
-        set -l cyan 63cdcf
-        set -l pink d67ad2
-
-        # Syntax Highlighting Colors
-        set -g fish_color_normal $foreground
-        set -g fish_color_command $cyan
-        set -g fish_color_keyword $pink
-        set -g fish_color_quote $yellow
-        set -g fish_color_redirection $foreground
-        set -g fish_color_end $orange
-        set -g fish_color_error $red
-        set -g fish_color_param $purple
-        set -g fish_color_comment $comment
-        set -g fish_color_selection --background=$selection
-        set -g fish_color_search_match --background=$selection
-        set -g fish_color_operator $green
-        set -g fish_color_escape $pink
-        set -g fish_color_autosuggestion $comment
-
-        # Completion Pager Colors
-        set -g fish_pager_color_progress $comment
-        set -g fish_pager_color_prefix $cyan
-        set -g fish_pager_color_completion $foreground
-        set -g fish_pager_color_description $comment
+        fish_config theme choose tokyonight_moon
 
         ${
           if isDarwin
@@ -173,13 +152,6 @@
 
             # mise
             mise activate fish | source
-
-            set --local appearance (defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo "dark" || echo "light")
-            if test appearance = "light"
-              set --export BAT_THEME "dayfox"
-            else
-              set --export BAT_THEME "nightfox"
-            end
           ''
           else ''
           ''
@@ -245,6 +217,20 @@
           line-numbers = true;
           navigate = true; # use n and N to move between diff sections
           side-by-side = true;
+
+          # TokyoNight Moon for Delta
+          # https://github.com/folke/tokyonight.nvim/blob/main/extras/delta/tokyonight_moon.gitconfig
+          minus-style = "syntax \"#3a273a\"";
+          minus-non-emph-style = "syntax \"#3a273a\"";
+          minus-emph-style = "syntax \"#6b2e43\"";
+          minus-empty-line-marker-style = "syntax \"#3a273a\"";
+          line-numbers-minus-style = "#e26a75";
+          plus-style = "syntax \"#273849\"";
+          plus-non-emph-style = "syntax \"#273849\"";
+          plus-emph-style = "syntax \"#305f6f\"";
+          plus-empty-line-marker-style = "syntax \"#273849\"";
+          line-numbers-plus-style = "#b8db87";
+          line-numbers-zero-style = "#3b4261";
         };
         diff = {
           colorMoved = "default";
@@ -319,6 +305,30 @@
       };
     };
 
+    lazygit = {
+      enable = true;
+      settings = {
+        # TokyoNight Moon for Lazygit
+        # https://github.com/folke/tokyonight.nvim/blob/main/extras/lazygit/tokyonight_moon.yml
+        gui = {
+          nerdFontsVersion = "3";
+          theme = {
+            activeBorderColor = ["#ff966c" "bold"];
+            inactiveBorderColor = ["#589ed7"];
+            searchingActiveBorderColor = ["#ff966c" "bold"];
+            optionsTextColor = ["#82aaff"];
+            selectedLineBgColor = ["#2d3f76"];
+            cherryPickedCommitFgColor = ["#82aaff"];
+            cherryPickedCommitBgColor = ["#c099ff"];
+            markedBaseCommitFgColor = ["#82aaff"];
+            markedBaseCommitBgColor = ["#ffc777"];
+            unstagedChangesColor = ["#c53b53"];
+            defaultFgColor = ["#c8d3f5"];
+          };
+        };
+      };
+    };
+
     neovim = {
       defaultEditor = true;
       enable = true;
@@ -380,28 +390,33 @@
         bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
         bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
-        # Nightfox colors for Tmux
-        # Style: nightfox
-        # Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox.tmux
-        set -g mode-style "fg=#131a24,bg=#aeafb0"
-        set -g message-style "fg=#131a24,bg=#aeafb0"
-        set -g message-command-style "fg=#131a24,bg=#aeafb0"
-        set -g pane-border-style "fg=#aeafb0"
-        set -g pane-active-border-style "fg=#719cd6"
+        # TokyoNight colors for Tmux
+        # https://github.com/folke/tokyonight.nvim/blob/78cc1ae48a26990dd028f4098892a5d6c041e194/extras/tmux/tokyonight_moon.tmux
+        set -g mode-style "fg=#82aaff,bg=#3b4261"
+        set -g message-style "fg=#82aaff,bg=#3b4261"
+        set -g message-command-style "fg=#82aaff,bg=#3b4261"
+        set -g pane-border-style "fg=#3b4261"
+        set -g pane-active-border-style "fg=#82aaff"
         set -g status "on"
         set -g status-justify "left"
-        set -g status-style "fg=#aeafb0,bg=#131a24"
+        set -g status-style "fg=#82aaff,bg=#1e2030"
         set -g status-left-length "100"
         set -g status-right-length "100"
         set -g status-left-style NONE
         set -g status-right-style NONE
-        set -g status-left "#[fg=#131a24,bg=#719cd6,bold] #S #[fg=#719cd6,bg=#131a24,nobold,nounderscore,noitalics]"
-        set -g status-right "#[fg=#131a24,bg=#131a24,nobold,nounderscore,noitalics]#[fg=#719cd6,bg=#131a24] #{prefix_highlight} #[fg=#aeafb0,bg=#131a24,nobold,nounderscore,noitalics]#[fg=#131a24,bg=#aeafb0] %Y-%m-%d  %I:%M %p #[fg=#719cd6,bg=#aeafb0,nobold,nounderscore,noitalics]#[fg=#131a24,bg=#719cd6,bold] #h "
-        setw -g window-status-activity-style "underscore,fg=#71839b,bg=#131a24"
+        set -g status-left "#[fg=#1b1d2b,bg=#82aaff,bold] #S #[fg=#82aaff,bg=#1e2030,nobold,nounderscore,noitalics]"
+        set -g status-right "#[fg=#1e2030,bg=#1e2030,nobold,nounderscore,noitalics]#[fg=#82aaff,bg=#1e2030] #{prefix_highlight} #[fg=#3b4261,bg=#1e2030,nobold,nounderscore,noitalics]#[fg=#82aaff,bg=#3b4261] %Y-%m-%d  %I:%M %p #[fg=#82aaff,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1b1d2b,bg=#82aaff,bold] #h "
+        if-shell '[ "$(tmux show-option -gqv "clock-mode-style")" == "24" ]' {
+          set -g status-right "#[fg=#1e2030,bg=#1e2030,nobold,nounderscore,noitalics]#[fg=#82aaff,bg=#1e2030] #{prefix_highlight} #[fg=#3b4261,bg=#1e2030,nobold,nounderscore,noitalics]#[fg=#82aaff,bg=#3b4261] %Y-%m-%d  %H:%M #[fg=#82aaff,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1b1d2b,bg=#82aaff,bold] #h "
+        }
+        setw -g window-status-activity-style "underscore,fg=#828bb8,bg=#1e2030"
         setw -g window-status-separator ""
-        setw -g window-status-style "NONE,fg=#71839b,bg=#131a24"
-        setw -g window-status-format "#[fg=#131a24,bg=#131a24,nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=#131a24,bg=#131a24,nobold,nounderscore,noitalics]"
-        setw -g window-status-current-format "#[fg=#131a24,bg=#aeafb0,nobold,nounderscore,noitalics]#[fg=#131a24,bg=#aeafb0,bold] #I  #W #F #[fg=#aeafb0,bg=#131a24,nobold,nounderscore,noitalics]"
+        setw -g window-status-style "NONE,fg=#828bb8,bg=#1e2030"
+        setw -g window-status-format "#[fg=#1e2030,bg=#1e2030,nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=#1e2030,bg=#1e2030,nobold,nounderscore,noitalics]"
+        setw -g window-status-current-format "#[fg=#1e2030,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#82aaff,bg=#3b4261,bold] #I  #W #F #[fg=#3b4261,bg=#1e2030,nobold,nounderscore,noitalics]"
+        # tmux-plugins/tmux-prefix-highlight support
+        set -g @prefix_highlight_output_prefix "#[fg=#ffc777]#[bg=#1e2030]#[fg=#1e2030]#[bg=#ffc777]"
+        set -g @prefix_highlight_output_suffix ""
       '';
 
       # Use vi keybindings
