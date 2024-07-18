@@ -141,6 +141,9 @@
 
         fish_config theme choose tokyonight_moon
 
+        # ~/.local/bin for user-installed binaries
+        set --export PATH ~/.local/bin $PATH
+
         ${
           if isDarwin
           then ''
