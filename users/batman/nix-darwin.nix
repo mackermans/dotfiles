@@ -35,6 +35,7 @@
     brews = [
       # "koekeishiya/formulae/skhd" # hotkey daemon
       # "koekeishiya/formulae/yabai" # tiling window manager
+      "cargo-binstall"
       "pinentry-mac" # gpg passkey agent
       "pulumi"
     ];
