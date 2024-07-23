@@ -367,6 +367,7 @@
 
         # Set true color
         set -ga terminal-overrides ",*256col*:Tc"
+        set -g default-terminal "screen-256color"
 
         # Reload tmux config
         bind r source-file ${config.xdg.configHome}/tmux/tmux.conf \; display "Reloaded!"
