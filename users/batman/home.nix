@@ -12,6 +12,10 @@
   ];
 
   xdg.configFile = {
+    "bat/themes" = {
+      source = ./.config/bat/themes;
+      recursive = true;
+    };
     "direnv" = {
       source = ./.config/direnv;
       recursive = true;

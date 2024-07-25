@@ -10,6 +10,9 @@
     # better "cat" util
     bat = {
       enable = true;
+      config = {
+        theme = "tokyonight_moon";
+      };
     };
 
     direnv = {
