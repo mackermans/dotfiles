@@ -89,7 +89,7 @@
     };
 
     darwinConfigurations = {
-      nix-darwin = nix-darwin.lib.darwinSystem {
+      batmac = nix-darwin.lib.darwinSystem {
         specialArgs = darwinArgs;
         system = darwinArgs.currentSystem;
         modules = [
@@ -124,7 +124,7 @@
     };
 
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      batnix = nixpkgs.lib.nixosSystem {
         specialArgs = nixosArgs;
         system = nixosArgs.currentSystem;
         modules = [

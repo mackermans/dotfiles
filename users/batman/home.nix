@@ -1,5 +1,5 @@
 {
-  currentInstallation,
+  currentHostname,
   currentUser,
   hasGui,
   isDarwin,
@@ -198,7 +198,7 @@
 
         # should be a script, so it can be used in other scripts
         (pkgs.writeShellScriptBin "nix-rebuild" ''
-          ${nixRebuild} switch --flake "$HOME/.dotfiles#${currentInstallation}"
+          ${nixRebuild} switch --flake "$HOME/.dotfiles#${currentHostname}"
         '')
 
         (pkgs.writeShellScriptBin "nix-rollback" ''
