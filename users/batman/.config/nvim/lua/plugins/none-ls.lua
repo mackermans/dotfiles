@@ -51,6 +51,9 @@ return {
         nls.builtins.diagnostics.deadnix,
         nls.builtins.diagnostics.statix,
         nls.builtins.formatting.alejandra,
+
+        -- XML
+        nls.builtins.formatting.xmllint,
       })
     end,
   },
