@@ -225,6 +225,7 @@
   };
 
   nix = {
+    package = pkgs.nix;
     settings = {
       # Manual optimise storage: nix-store --optimise
       # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store

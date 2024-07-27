@@ -27,6 +27,17 @@
     nixpkgs,
     ...
   }: let
+    homeManagerArgs =
+      inputs
+      // {
+        currentHostname = "batcave";
+        currentInstallation = "home-manager";
+        currentSystem = "x86_64-linux";
+        currentUser = "batman";
+        isDarwin = false;
+        hasGui = false;
+        nixRebuild = "home-manager";
+      };
     darwinArgs =
       inputs
       // {
@@ -50,12 +61,39 @@
         nixRebuild = "sudo nixos-rebuild";
       };
   in {
+    homeConfigurations = {
+      batcave = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = homeManagerArgs.currentSystem;
+        };
+        extraSpecialArgs = homeManagerArgs;
+        modules = [
+          ./hosts/${homeManagerArgs.currentHostname}/${homeManagerArgs.currentInstallation}.nix
+          ./users/${homeManagerArgs.currentUser}/home.nix
+
+          nix-index-database.hmModules.nix-index
+          {
+            nixpkgs = {
+              config = {
+                allowBroken = false;
+                allowUnfree = true;
+                allowUnsupportedSystem = false;
+              };
+              overlays = [
+                (import ./overlays)
+              ];
+            };
+          }
+        ];
+      };
+    };
+
     darwinConfigurations = {
       nix-darwin = nix-darwin.lib.darwinSystem {
         specialArgs = darwinArgs;
         system = darwinArgs.currentSystem;
         modules = [
-          ./users/${darwinArgs.currentUser}/${darwinArgs.currentInstallation}.nix
+          ./hosts/${darwinArgs.currentHostname}/${darwinArgs.currentInstallation}.nix
 
           home-manager.darwinModules.home-manager
           {
@@ -91,7 +129,6 @@
         system = nixosArgs.currentSystem;
         modules = [
           ./hosts/${nixosArgs.currentHostname}/configuration.nix
-          ./users/${nixosArgs.currentUser}/${nixosArgs.currentInstallation}.nix
 
           home-manager.nixosModules.home-manager
           {
