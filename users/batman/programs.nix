@@ -291,6 +291,9 @@
         core = {
           fsmonitor = "watchman";
         };
+        fix = {
+          tool-command = ["pnpm" "prettier"];
+        };
         signing = {
           backend = "ssh";
           backends = {
