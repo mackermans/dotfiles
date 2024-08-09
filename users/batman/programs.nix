@@ -137,7 +137,7 @@
 
         # bun
         set --export BUN_INSTALL "$HOME/.bun"
-        set --export PATH $BUN_INSTALL/bin $PATH
+        fish_add_path $BUN_INSTALL/bin
 
         # jujutsu
         set --export JJ_CONFIG "${config.xdg.configHome}/jj/config.toml"
@@ -145,7 +145,11 @@
         fish_config theme choose tokyonight_moon
 
         # ~/.local/bin for user-installed binaries
-        set --export PATH ~/.local/bin $PATH
+        fish_add_path "$HOME/.local/bin"
+
+        # pnpm
+        set --export PNPM_HOME "$HOME/.local/share/pnpm"
+        fish_add_path "$PNPM_HOME"
 
         ${
           if isDarwin
