@@ -29,6 +29,7 @@
 
     taps = [
       "dopplerhq/cli"
+      "nikitabobko/tap"
       "pulumi/tap"
     ];
 
@@ -49,6 +50,7 @@
       "arc"
       "betterdisplay"
       "karabiner-elements"
+      "nikitabobko/tap/aerospace"
       "obsidian"
       "orbstack"
       "raycast"

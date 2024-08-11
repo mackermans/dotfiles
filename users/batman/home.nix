@@ -12,6 +12,10 @@
   ];
 
   xdg.configFile = {
+    "aerospace" = {
+      source = ./.config/aerospace;
+      recursive = true;
+    };
     "bat/themes" = {
       source = ./.config/bat/themes;
       recursive = true;
