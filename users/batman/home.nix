@@ -121,6 +121,7 @@
         pkgs.graphite-cli # git stacks cli
         pkgs.libxml2 # xml parser for C
         pkgs.mise # package manager
+        pkgs.postman # API development environment
         pkgs.postgresql_16 # postgresql v16
         pkgs.python3 # python v3
         pkgs.rebar3 # erlang build tool
