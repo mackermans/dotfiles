@@ -309,6 +309,11 @@
           sign-all = true;
         };
         ui = {
+          diff-editor = [
+            "nvim"
+            "-c"
+            "DiffEditor $left $right $output"
+          ];
           merge-editor = "vimdiff";
         };
         user = {
