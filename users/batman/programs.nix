@@ -226,7 +226,6 @@
         delta = {
           line-numbers = true;
           navigate = true; # use n and N to move between diff sections
-          side-by-side = true;
 
           # TokyoNight Moon for Delta
           # https://github.com/folke/tokyonight.nvim/blob/main/extras/delta/tokyonight_moon.gitconfig
