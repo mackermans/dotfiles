@@ -32,8 +32,8 @@
       source = ./.config/karabiner;
       recursive = true;
     };
-    "nvim" = {
-      source = ./.config/nvim;
+    "nvim-old" = {
+      source = ./.config/nvim-old;
       recursive = true;
     };
     "wezterm" = {
@@ -121,6 +121,7 @@
         pkgs.graphite-cli # git stacks cli
         pkgs.libxml2 # xml parser for C
         pkgs.mise # package manager
+        pkgs.neovim # modern Vim editor
         pkgs.postman # API development environment
         pkgs.postgresql_16 # postgresql v16
         pkgs.python3 # python v3

@@ -192,6 +192,7 @@
 
       shellAliases = {
         cat = "bat";
+        vim = "nvim";
         vimdiff = "vim -d";
       };
     };
@@ -344,13 +345,6 @@
           };
         };
       };
-    };
-
-    neovim = {
-      defaultEditor = true;
-      enable = true;
-      extraPackages = with pkgs; [gcc];
-      vimAlias = true;
     };
 
     # suggest packages from nixpkgs when command not found using nix-index
