@@ -220,7 +220,6 @@
           gpgsign = true;
         };
         core = {
-          fsmonitor = true;
           pager = "delta";
           untrackedCache = true;
         };
