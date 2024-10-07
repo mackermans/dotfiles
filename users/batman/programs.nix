@@ -135,6 +135,9 @@
 
         # fzf end
 
+        # neovim
+        set --export EDITOR nvim
+
         # bun
         set --export BUN_INSTALL "$HOME/.bun"
         fish_add_path $BUN_INSTALL/bin
