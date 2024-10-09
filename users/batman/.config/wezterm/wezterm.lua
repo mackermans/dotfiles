@@ -40,4 +40,7 @@ config.window_decorations = "RESIZE"
 -- config.window_background_opacity = 0.75
 config.macos_window_background_blur = 8
 
+-- https://github.com/wez/wezterm/issues/5990#issuecomment-2305416553
+config.front_end = "WebGpu"
+
 return config
