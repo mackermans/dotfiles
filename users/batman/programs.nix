@@ -42,6 +42,10 @@
           body = "echo \"'rm' is restricted. Alternative: 'trash', or '$(which rm)' if you need to.\";";
           description = "block usage of rm command";
         };
+        trim = {
+          body = "sed 's/^[ \\t]*//;s/[ \\t]*$//';";
+          description = "trim whitespace";
+        };
       };
 
       plugins = [
@@ -142,9 +146,7 @@
         set --export BUN_INSTALL "$HOME/.bun"
         fish_add_path $BUN_INSTALL/bin
 
-        # jujutsu
-        set --export JJ_CONFIG "${config.xdg.configHome}/jj/config.toml"
-
+        # theme
         fish_config theme choose tokyonight_moon
 
         # ~/.local/bin for user-installed binaries
@@ -182,10 +184,9 @@
         jd = "jj diff";
         jlog = "jj log";
         jst = "jj status";
-        jbc = "jj branch create";
-        jbl = "jj branch list";
-        jbs = "jj branch set";
-        jbsel = "jj branch set \"(git branch | fzf)\"";
+        jbd = "jj bookmark delete (git branch | fzf | trim)";
+        jbl = "jj bookmark list";
+        jbs = "jj bookmark set (git branch | fzf | trim)";
 
         gci = "git checkout-interactive";
         t = "tmux";
@@ -213,10 +214,6 @@
     # git version control
     git = {
       enable = true;
-
-      aliases = {
-        checkout-interactive = "!git checkout $(git branch | fzf | xargs)";
-      };
 
       extraConfig = {
         commit = {
