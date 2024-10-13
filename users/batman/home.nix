@@ -84,6 +84,7 @@
       [
         # System Tools
         pkgs.btop # process monitor
+        pkgs.ctop # container monitor
         pkgs.neofetch # system info
         pkgs.nmap # network scanner
         pkgs.rsync # file sync
