@@ -371,6 +371,10 @@
         set -ga terminal-overrides ",*256col*:Tc"
         set -g default-terminal "screen-256color"
 
+        # Bug in tmux 3.5: Fish as default-shell not respected
+        # https://github.com/nix-community/home-manager/issues/5952#issuecomment-2410207554
+        set -g default-command "$SHELL"
+
         # Reload tmux config
         bind r source-file ${config.xdg.configHome}/tmux/tmux.conf \; display "Reloaded!"
 
