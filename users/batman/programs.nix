@@ -201,16 +201,6 @@
       };
     };
 
-    gh = {
-      enable = true;
-
-      extensions = [
-        pkgs.gh-actions-cache
-        pkgs.gh-copilot
-        pkgs.gh-dash
-      ];
-    };
-
     # git version control
     git = {
       enable = true;
