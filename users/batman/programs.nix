@@ -156,6 +156,9 @@
         set --export PNPM_HOME "$HOME/.local/share/pnpm"
         fish_add_path "$PNPM_HOME"
 
+        # mise
+        mise activate fish | source
+
         ${
           if isDarwin
           then ''
@@ -164,9 +167,6 @@
 
             # 1password ssh agent compatibility for git used by jujutsu
             set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-
-            # mise
-            mise activate fish | source
           ''
           else ''
           ''
