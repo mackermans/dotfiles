@@ -159,6 +159,9 @@
         # mise
         mise activate fish | source
 
+        # jujutsu
+        jj util completion fish | source
+
         ${
           if isDarwin
           then ''
