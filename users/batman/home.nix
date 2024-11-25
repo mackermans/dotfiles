@@ -109,7 +109,7 @@
         pkgs.terraform # terraform cli for infrastructure provisioning
 
         # Security and Encryption
-        pkgs._1password # 1password: password manager cli
+        pkgs._1password-cli # password manager
         pkgs.age # encryption cli
         pkgs.sops # encrypted file editor
 
