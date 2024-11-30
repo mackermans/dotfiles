@@ -118,6 +118,7 @@
         pkgs.elixir # elixir language
         pkgs.erlang # erlang language
         pkgs.fzf # fuzzy finder
+        pkgs.gh # github cli
         pkgs.gleam # gleam language
         pkgs.graphite-cli # git stacks cli
         pkgs.libxml2 # xml parser for C
