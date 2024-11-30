@@ -80,8 +80,15 @@
     # release notes.
     stateVersion = "23.05"; # Please read the comment before changing.
 
-    packages =
+
+    packages = let 
+        pythonPackages = pkgs.python3.withPackages (ps: [
+          ps.pip
+        ]);
+      in
       [
+        pythonPackages
+
         # System Tools
         pkgs.btop # process monitor
         pkgs.ctop # container monitor
@@ -126,7 +133,6 @@
         pkgs.neovim # modern Vim editor
         pkgs.postman # API development environment
         pkgs.postgresql_16 # postgresql v16
-        pkgs.python3 # python v3
         pkgs.rebar3 # erlang build tool
         pkgs.tilt # k8s dev environment
         pkgs.watchman # file watcher
