@@ -113,7 +113,6 @@
         pkgs.kubectl # k8s management cli
         pkgs.kubectx # k8s context switcher
         pkgs.kubernetes-helm # k8s package manager
-        pkgs.terraform # terraform cli for infrastructure provisioning
 
         # Security and Encryption
         pkgs._1password-cli # password manager
