@@ -189,6 +189,10 @@
         pkgs.jq # json parser
         pkgs.yq-go # yaml/toml/xml parser
 
+        # Audio
+        pkgs.beets # music media organizer
+        pkgs.spotify # music streaming
+
         # Utilities and Misc
         pkgs.ast-grep # grep for code
         pkgs.comma # run any nix package as a one-off command
@@ -197,7 +201,6 @@
         pkgs.moreutils # more unix utilities (sponge, etc.)
         pkgs.neo4j # graph database
         pkgs.ripgrep # better grep
-        pkgs.spotify # music streaming
         pkgs.trash-cli # trash cli for safer rm
         pkgs.websocat # websocket cli
 
