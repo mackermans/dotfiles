@@ -84,6 +84,8 @@
     packages = let 
         pythonPackages = pkgs.python3.withPackages (ps: [
           ps.pip
+
+          ps.jupyter
         ]);
       in
       [
