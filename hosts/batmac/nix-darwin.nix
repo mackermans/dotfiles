@@ -49,6 +49,7 @@
       "amethyst"
       "arc"
       "betterdisplay"
+      "ghostty"
       "karabiner-elements"
       "nikitabobko/tap/aerospace"
       "obsidian"
