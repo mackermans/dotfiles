@@ -28,6 +28,10 @@
       source = ./.config/fish/themes;
       recursive = true;
     };
+    "ghostty" = {
+      source = ./.config/ghostty;
+      recursive = true;
+    };
     "karabiner" = {
       source = ./.config/karabiner;
       recursive = true;
