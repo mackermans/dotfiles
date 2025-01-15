@@ -51,6 +51,7 @@
       "betterdisplay"
       "ghostty"
       "karabiner-elements"
+      "ngrok"
       "nikitabobko/tap/aerospace"
       "obsidian"
       "orbstack"
