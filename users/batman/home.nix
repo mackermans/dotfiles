@@ -195,7 +195,6 @@
         pkgs.yq-go # yaml/toml/xml parser
 
         # Audio
-        pkgs.beets # music media organizer
         pkgs.spotify # music streaming
 
         # Utilities and Misc
