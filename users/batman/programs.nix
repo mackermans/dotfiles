@@ -276,8 +276,6 @@
       ignores = [
         "*~"
         ".DS_Store"
-        ".idea"
-        ".vscode"
       ];
     };
 
