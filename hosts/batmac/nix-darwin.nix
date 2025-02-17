@@ -41,6 +41,12 @@
       "doppler"
       "pinentry-mac" # gpg passkey agent
       "pulumi"
+
+      # Swift development
+      "swiftformat" # formatter
+      "swiftlint" # linter
+      "xcbeautify" # pretty print xcode-build-server output
+      "xcode-build-server" # sourcekit-lsp outside of xcode
     ];
 
     # `brew install --cask`
