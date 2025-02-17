@@ -41,6 +41,7 @@
       "doppler"
       "pinentry-mac" # gpg passkey agent
       "pulumi"
+      "uv" # python package and project manager
 
       # Swift development
       "swiftformat" # formatter
