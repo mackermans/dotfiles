@@ -184,7 +184,7 @@
         jcm = "jj commit -m";
         jgf = "jj git fetch";
         jgp = "jj git push";
-        jd = "jj diff";
+        jd = ''jj --config "ui.diff.format=\"git\"" --config "ui.pager=\"delta\"" diff'';
         jlog = "jj log";
         jst = "jj status";
         jbd = "jj bookmark delete (git branch | fzf | trim)";
