@@ -295,8 +295,8 @@
               program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
             };
           };
+          behavior = "own";
           key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIARYUd5GUouM1r3YV5aEfwQryc1/7wnA1+Kys/bnV60O";
-          sign-all = true;
         };
         ui = {
           merge-editor = "vimdiff";
