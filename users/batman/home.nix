@@ -234,12 +234,6 @@
         ]
         else []
       );
-
-    sessionVariables = {
-      fish_greeting = ""; # 🐟
-      DOCKER_BUILDKIT = "1";
-      LANG = "en_US.UTF-8";
-    };
   };
 
   nix = {

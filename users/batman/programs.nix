@@ -92,6 +92,10 @@
         else "";
 
       shellInit = ''
+        set --export fish_greeting ""
+        set --export DOCKER_BUILDKIT 1
+        set --export LANG "en_US.UTF-8"
+
         # fzf start
 
         # customize keybindings
