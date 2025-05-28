@@ -194,9 +194,6 @@
         pkgs.jq # json parser
         pkgs.yq-go # yaml/toml/xml parser
 
-        # Audio
-        pkgs.spotify # music streaming
-
         # Utilities and Misc
         pkgs.ast-grep # grep for code
         pkgs.comma # run any nix package as a one-off command
