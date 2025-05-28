@@ -82,6 +82,13 @@
   networking.computerName = currentHostname;
   networking.hostName = currentHostname;
 
+  nix = {
+    optimise.automatic = true;
+    settings = {
+      trusted-users = [ currentUser ];
+    };
+  };
+
   # # zsh is the default shell on Mac and we want to make sure that we're
   # # configuring the rc correctly with nix-darwin paths.
   programs = {

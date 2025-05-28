@@ -238,14 +238,8 @@
 
   nix = {
     settings = {
-      # Manual optimise storage: nix-store --optimise
-      # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
-      auto-optimise-store = true;
-
       # Necessary for using flakes on this system.
       experimental-features = "nix-command flakes";
-
-      trusted-users = [currentUser];
     };
   };
 
