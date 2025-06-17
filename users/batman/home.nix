@@ -184,7 +184,6 @@
         # yaml
         pkgs.yaml-language-server # yaml language server
         # misc
-        pkgs.biome # linter and formatter
         pkgs.nodePackages_latest.prettier # formatter
         pkgs.vscode-langservers-extracted # vscode language servers (HTML/CSS/JSON/ESLint)
 
