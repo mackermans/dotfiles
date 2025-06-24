@@ -160,6 +160,9 @@
         set --export PNPM_HOME "$HOME/.local/share/pnpm"
         fish_add_path "$PNPM_HOME"
 
+        # claude
+        fish_add_path "$HOME/.claude/local"
+
         # mise
         mise activate fish | source
 
