@@ -57,21 +57,6 @@
           name = "plugin-git";
           inherit (pkgs.fishPlugins.plugin-git) src;
         }
-        {
-          name = "plugin-kubectl";
-          src =
-            pkgs.fetchFromGitHub
-            {
-              owner = "blackjid";
-              repo = "plugin-kubectl";
-              rev = "f3cc9003077a3e2b5f45e3988817a78e959d4131";
-              sha256 = "sha256-ABzVSzM135UeAJ97CUBb9rhK9Pc6ItLSmJQOacq09gQ=";
-            };
-        }
-        # {
-        #   name = "tide";
-        #   inherit (pkgs.fishPlugins.tide) src;
-        # }
       ];
 
       loginShellInit =
