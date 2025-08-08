@@ -44,6 +44,7 @@
       "uv" # python package and project manager
 
       # Swift development
+      "stripe/stripe-cli/stripe"
       "swiftformat" # formatter
       "swiftlint" # linter
       "xcbeautify" # pretty print xcode-build-server output
