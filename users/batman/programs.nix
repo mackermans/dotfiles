@@ -385,6 +385,8 @@
 
         set -g @tokyo-night-tmux_theme storm
         set -g @tokyo-night-tmux_transparent 1
+        set -g @tokyo-night-tmux_show_git 0
+        set -g @tokyo-night-tmux_show_wbg 0
       '';
 
       # Use vi keybindings
