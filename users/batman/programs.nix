@@ -274,11 +274,11 @@
     jujutsu = {
       enable = true;
       settings = {
-        core = {
-          fsmonitor = "watchman";
-        };
         fix = {
           tool-command = ["pnpm" "prettier"];
+        };
+        fsmonitor = {
+          backend = "watchman";
         };
         signing = {
           backend = "ssh";
