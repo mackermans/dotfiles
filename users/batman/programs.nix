@@ -176,7 +176,7 @@
         jcm = "jj commit -m";
         jgf = "jj git fetch";
         jgp = "jj git push";
-        jd = ''jj --config "ui.diff.format=\"git\"" --config "ui.pager=\"delta\"" diff'';
+        jd = "jj diff";
         jlog = "jj log";
         jst = "jj status";
         jbd = "jj bookmark delete (git branch | fzf | trim)";
@@ -274,6 +274,9 @@
     jujutsu = {
       enable = true;
       settings = {
+        diff = {
+          tool = "delta";
+        };
         fix = {
           tool-command = ["pnpm" "prettier"];
         };
@@ -291,11 +294,19 @@
           key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIARYUd5GUouM1r3YV5aEfwQryc1/7wnA1+Kys/bnV60O";
         };
         ui = {
+          diff-formatter = ":git";
           merge-editor = "vimdiff";
+          pager = ["delta" "--pager" "less -FRX"]; # Keeps output from the terminal after closing the pager
         };
         user = {
           email = "4571935+mackermans@users.noreply.github.com";
           name = "Maarten Ackermans";
+        };
+        "[--scope]" = {
+          "--when.commands" = ["diff" "show"];
+        };
+        "--scope.ui" = {
+          pager = "delta";
         };
       };
     };
