@@ -32,6 +32,10 @@
       source = ./.config/ghostty;
       recursive = true;
     };
+    "jj" = {
+      source = ./.config/jj;
+      recursive = true;
+    };
     "karabiner" = {
       source = ./.config/karabiner;
       recursive = true;
@@ -133,6 +137,7 @@
         pkgs.gh # github cli
         pkgs.gleam # gleam language
         pkgs.graphite-cli # git stacks cli
+        pkgs.jujutsu # git-compatible DVCS
         pkgs.libxml2 # xml parser for C
         pkgs.mise # package manager
         pkgs.neovim # modern Vim editor

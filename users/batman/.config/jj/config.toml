@@ -1,0 +1,27 @@
+[fsmonitor]
+backend = "watchman"
+
+[signing]
+backend = "ssh"
+backends.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+behavior = "own"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIARYUd5GUouM1r3YV5aEfwQryc1/7wnA1+Kys/bnV60O"
+
+[user]
+email = "4571935+mackermans@users.noreply.github.com"
+name = "Maarten Ackermans"
+
+[diff]
+tool = "delta"
+
+[ui]
+diff-formatter = ":git" # required by delta
+pager = ["delta", "--pager", "less -FRX"] # Keeps output from the terminal after closing the pager
+
+# These options allow for `jj diff` and `jj show` to clear the output from the terminal after closing the pager.
+[[--scope]]
+--when.commands = ["diff", "show"]
+
+[--scope.ui]
+pager = "delta"
+

@@ -271,46 +271,6 @@
       ];
     };
 
-    jujutsu = {
-      enable = true;
-      settings = {
-        diff = {
-          tool = "delta";
-        };
-        fix = {
-          tool-command = ["pnpm" "prettier"];
-        };
-        fsmonitor = {
-          backend = "watchman";
-        };
-        signing = {
-          backend = "ssh";
-          backends = {
-            ssh = {
-              program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-            };
-          };
-          behavior = "own";
-          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIARYUd5GUouM1r3YV5aEfwQryc1/7wnA1+Kys/bnV60O";
-        };
-        ui = {
-          diff-formatter = ":git";
-          merge-editor = "vimdiff";
-          pager = ["delta" "--pager" "less -FRX"]; # Keeps output from the terminal after closing the pager
-        };
-        user = {
-          email = "4571935+mackermans@users.noreply.github.com";
-          name = "Maarten Ackermans";
-        };
-        "[--scope]" = {
-          "--when.commands" = ["diff" "show"];
-        };
-        "--scope.ui" = {
-          pager = "delta";
-        };
-      };
-    };
-
     lazygit = {
       enable = true;
       settings = {
