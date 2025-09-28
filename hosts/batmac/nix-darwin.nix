@@ -31,6 +31,7 @@
       "dopplerhq/cli"
       "nikitabobko/tap"
       "pulumi/tap"
+      "sst/tap"
     ];
 
     # `brew install`
@@ -39,6 +40,7 @@
       # "koekeishiya/formulae/yabai" # tiling window manager
       "cargo-binstall"
       "doppler"
+      "opencode" # ai coding agent cli
       "pinentry-mac" # gpg passkey agent
       "pulumi"
       "uv" # python package and project manager
