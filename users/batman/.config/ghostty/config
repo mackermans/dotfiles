@@ -4,4 +4,4 @@ theme = dark:tokyonight,light:tokyonight-day
 window-padding-x = 8
 
 keybind = global:cmd+backquote=toggle_quick_terminal
-quick-terminal-size = 50%,90%
+quick-terminal-size = 75%,90%
