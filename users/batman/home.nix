@@ -205,6 +205,7 @@
         pkgs.glow # markdown preview
         pkgs.moreutils # more unix utilities (sponge, etc.)
         pkgs.ripgrep # better grep
+        pkgs.todoist # todoist task management cli
         pkgs.trash-cli # trash cli for safer rm
         pkgs.websocat # websocket cli
 
