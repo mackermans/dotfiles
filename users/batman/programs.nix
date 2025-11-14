@@ -200,7 +200,7 @@
     git = {
       enable = true;
 
-      extraConfig = {
+      settings = {
         commit = {
           gpgsign = true;
         };
