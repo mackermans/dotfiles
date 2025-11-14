@@ -40,6 +40,7 @@
       # "koekeishiya/formulae/yabai" # tiling window manager
       "cargo-binstall"
       "doppler"
+      "markdownlint-cli" # markdown linter
       "opencode" # ai coding agent cli
       "pinentry-mac" # gpg passkey agent
       "pulumi"
